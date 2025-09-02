@@ -216,6 +216,16 @@ class PortfolioController extends Controller
     public function downloadCV()
     {
         $pathToFile = public_path('assets/cv/Md_Lakibul_Hasan_CV.pdf');
+
+        // Check if file exists, if not provide a fallback
+        if (!file_exists($pathToFile)) {
+            // Create a simple response for when CV is not available
+            return response()->json([
+                'message' => 'CV download is temporarily unavailable. Please contact me directly.',
+                'email' => 'lakibul.cse@gmail.com'
+            ], 404);
+        }
+
         return response()->download($pathToFile);
     }
 
