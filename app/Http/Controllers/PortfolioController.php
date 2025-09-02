@@ -10,102 +10,203 @@ class PortfolioController extends Controller
     {
         $data = [
             'name' => 'Md Lakibul Hasan',
-            'title' => 'Backend Developer',
-            'tagline' => 'Building robust, scalable server-side solutions with modern technologies',
-            'email' => 'lakibulhasan03@gmail.com',
-            'phone' => '+880 1717-036103',
+            'title' => 'Software Developer',
+            'tagline' => 'Building scalable web applications with modern technologies and third-party integrations',
+            'email' => 'lakibul.cse@gmail.com',
+            'phone' => '+880 01983-427887',
             'location' => 'Dhaka, Bangladesh',
-            'linkedin' => 'https://linkedin.com/in/lakibul-hasan',
+            'linkedin' => 'https://www.linkedin.com/in/lakib-hasan-295024169/',
             'github' => 'https://github.com/lakibul',
-            'summary' => 'Passionate Backend Developer with expertise in PHP, Laravel, Node.js, and database management. Experienced in building RESTful APIs, microservices, and scalable web applications. Strong problem-solving skills and commitment to clean, maintainable code.',
+            'summary' => 'Software Developer with 3 years of experience in building scalable web applications using PHP (Laravel, CodeIgniter), Node JS, JavaScript, AJAX, Vue JS React JS, MySQL, MongoDB, HTML, CSS, Bootstrap with third party services integrations. Proficient in OOP, design patterns, and data structures, APIs. Also knowledgeable in Machine Learning and Deep Learning from research work.',
             'skills' => [
-                'Programming Languages' => ['PHP', 'JavaScript', 'Python', 'Java', 'C++'],
-                'Frameworks & Libraries' => ['Laravel', 'Node.js', 'Express.js', 'React.js', 'Vue.js'],
-                'Databases' => ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis'],
-                'Tools & Technologies' => ['Git', 'Docker', 'AWS', 'Linux', 'Nginx', 'Apache'],
-                'API Development' => ['RESTful APIs', 'GraphQL', 'API Documentation', 'Postman'],
-                'Other' => ['OOP', 'Design Patterns', 'TDD', 'Agile/Scrum', 'DevOps']
+                'Languages' => ['C', 'C++', 'PHP', 'HTML', 'CSS', 'JavaScript'],
+                'Frameworks' => ['CodeIgniter (v3, v4)', 'Laravel (v5-v11)', 'React.js', 'Node.js'],
+                'Frontend' => ['Bootstrap', 'AJAX', 'jQuery'],
+                'Database' => ['MySQL', 'MongoDB', 'Firestore', 'Redis', 'Elasticsearch'],
+                'Tools' => ['Git', 'Composer', 'FileZilla', 'cPanel', 'IONOS', 'MQTT', 'Laravel Artisan CLI', 'Docker'],
+                'Concepts' => ['OOP', 'MVC', 'REST API', 'GraphQL', 'Design Patterns', 'DSA', 'ER & Class Diagrams']
             ],
             'experience' => [
                 [
-                    'title' => 'Backend Developer',
-                    'company' => 'Tech Solutions Ltd.',
-                    'location' => 'Dhaka, Bangladesh',
-                    'period' => '2022 - Present',
+                    'title' => 'Software Developer',
+                    'company' => 'ParallaxLogic InfoTech',
+                    'location' => 'Shahjadpur, Gulshan',
+                    'period' => 'Jan 2023 – Present',
                     'responsibilities' => [
-                        'Developed and maintained RESTful APIs using Laravel and Node.js',
-                        'Optimized database queries resulting in 40% performance improvement',
-                        'Implemented microservices architecture for scalable applications',
-                        'Collaborated with frontend teams to integrate APIs seamlessly',
-                        'Mentored junior developers and conducted code reviews'
+                        'Developed a social platform for older adults with chat, events, carpools, and timeline features using Laravel and Flutter',
+                        'Contributed to an ERP-based hotel system using React.js, Firebase, Node.js, and CodeIgniter',
+                        'Built CRM software with real-time chat functionality using Pusher and CodeIgniter v3',
+                        'Migrated legacy PHP systems to Laravel framework with improved performance',
+                        'Performed data scraping, API integration, query optimization, database design, and indexing',
+                        'Delivered dynamic websites, e-commerce platforms, and web-based tools using Laravel, CodeIgniter, Node.js, and Bootstrap',
+                        'Developed REST APIs for mobile applications'
                     ]
                 ],
                 [
-                    'title' => 'Junior Backend Developer',
-                    'company' => 'Digital Innovations',
-                    'location' => 'Dhaka, Bangladesh',
-                    'period' => '2021 - 2022',
+                    'title' => 'Laravel Developer',
+                    'company' => 'Uttara InfoTech',
+                    'location' => 'Uttara, Dhaka',
+                    'period' => 'Jun 2022 - Jul 2022',
                     'responsibilities' => [
-                        'Built web applications using PHP and Laravel framework',
-                        'Designed and implemented database schemas',
-                        'Created automated testing suites for API endpoints',
-                        'Participated in Agile development processes'
+                        'Worked on small-scale Laravel projects for local businesses',
+                        'Developed custom admin panels and CRUD modules',
+                        'Implemented basic API integrations for various business requirements'
                     ]
                 ]
             ],
             'projects' => [
                 [
-                    'name' => 'E-Commerce API Platform',
-                    'description' => 'Comprehensive RESTful API for e-commerce platform with user management, product catalog, order processing, and payment integration.',
-                    'technologies' => ['Laravel', 'MySQL', 'Redis', 'Stripe API'],
+                    'name' => 'Wyzr',
+                    'description' => 'A community-driven social platform designed for older adults to connect, chat, carpools, events, timeline posts, and subscriptions. Available on Google Play Store.',
+                    'technologies' => ['Laravel', 'Flutter', 'Stripe', 'Google Pay', 'Apple Pay'],
                     'features' => [
-                        'JWT Authentication & Authorization',
-                        'Product & Category Management',
-                        'Shopping Cart & Checkout Process',
-                        'Payment Gateway Integration',
-                        'Order Tracking & Management'
+                        'Social networking for older adults',
+                        'Real-time chat functionality',
+                        'Event management system',
+                        'Carpool coordination',
+                        'Timeline posts and social feeds',
+                        'Subscription management',
+                        'Payment integration with multiple gateways'
                     ],
-                    'github' => 'https://github.com/lakibul/ecommerce-api'
+                    'github' => '#',
+                    'link' => 'https://play.google.com/store/search?q=wyzr&c=apps&hl=en'
                 ],
                 [
-                    'name' => 'Real-time Chat Application',
-                    'description' => 'Scalable real-time messaging system with WebSocket connections, user presence, and file sharing capabilities.',
-                    'technologies' => ['Node.js', 'Socket.io', 'MongoDB', 'Express.js'],
+                    'name' => 'Walltouch (Multivendor E-Commerce)',
+                    'description' => 'Complete multivendor e-commerce platform with separate panels for Super Admin, Admin, and Sellers. Comprehensive solution for online marketplace management.',
+                    'technologies' => ['Laravel', 'Bootstrap', 'MySQL', 'Payment Gateways'],
                     'features' => [
-                        'Real-time messaging with WebSockets',
-                        'User authentication and presence',
-                        'File upload and sharing',
-                        'Message history and search',
-                        'Room-based conversations'
+                        'Multivendor marketplace system',
+                        'Super Admin, Admin, and Seller panels',
+                        'Customer registration and order management',
+                        'Vendor management system',
+                        'Product catalog and inventory management',
+                        'Order processing and tracking',
+                        'Payment gateway integration'
                     ],
-                    'github' => 'https://github.com/lakibul/realtime-chat'
+                    'github' => '#',
+                    'link' => 'https://www.walltouchbd.com'
                 ],
                 [
-                    'name' => 'Task Management System',
-                    'description' => 'Backend system for project and task management with team collaboration features and progress tracking.',
-                    'technologies' => ['Laravel', 'PostgreSQL', 'Redis', 'AWS S3'],
+                    'name' => 'Simple Admission',
+                    'description' => 'Education agency software for study abroad consultancy and institute admissions. Complete solution for managing student applications and admissions process.',
+                    'technologies' => ['Laravel', 'Bootstrap', 'MySQL'],
                     'features' => [
-                        'Project & Task Management',
-                        'Team Collaboration Tools',
-                        'File Management & Storage',
-                        'Progress Tracking & Reports',
-                        'Email Notifications'
+                        'Student application management',
+                        'Institute partnership system',
+                        'Admission process tracking',
+                        'Document management',
+                        'Study abroad consultation tools',
+                        'Admin dashboard for agencies'
                     ],
-                    'github' => 'https://github.com/lakibul/task-management'
+                    'github' => '#',
+                    'link' => 'https://simpleadmission.net'
+                ],
+                [
+                    'name' => 'Hipe - ERP Hotel Management System',
+                    'description' => 'Comprehensive ERP hotel management system with React.js frontend, Firebase live chat, Node.js APIs for mobile & scraping, and CodeIgniter admin panel. Features integrated Google Translation API with MongoDB caching for efficient multilingual support.',
+                    'technologies' => ['React.js', 'Firebase', 'Node.js', 'CodeIgniter', 'MongoDB', 'Google Translation API'],
+                    'features' => [
+                        'Hotel management ERP system',
+                        'React.js frontend interface',
+                        'Firebase real-time chat integration',
+                        'Node.js APIs for mobile applications',
+                        'Data scraping capabilities',
+                        'CodeIgniter admin panel',
+                        'Google Translation API integration',
+                        'MongoDB caching for multilingual support'
+                    ],
+                    'github' => '#'
+                ],
+                [
+                    'name' => 'Better Buy (Laravel E-Commerce)',
+                    'description' => 'Multivendor e-commerce system with role-based panels (Super Admin, Admin, Seller) and full customer order workflow management.',
+                    'technologies' => ['Laravel', 'MySQL', 'Bootstrap', 'Payment Gateways'],
+                    'features' => [
+                        'Multivendor e-commerce platform',
+                        'Role-based access control',
+                        'Super Admin, Admin, and Seller panels',
+                        'Complete customer order workflow',
+                        'Product and inventory management',
+                        'Payment processing integration',
+                        'Order tracking and management'
+                    ],
+                    'github' => 'https://github.com/lakibul/better-buy'
+                ],
+                [
+                    'name' => 'Laravel Chat with Vue.js',
+                    'description' => 'Full-featured real-time chat application built with Laravel 10 (API backend), Vue.js 3 (frontend SPA), and Pusher (WebSocket broadcasting). Supports one-to-one private messaging, typing indicators, unread message counts, and modern responsive UI.',
+                    'technologies' => ['Laravel 10', 'Vue.js 3', 'Pusher', 'WebSocket', 'REST API'],
+                    'features' => [
+                        'Real-time messaging with Pusher WebSockets',
+                        'One-to-one private messaging',
+                        'Typing indicators',
+                        'Unread message counts',
+                        'Modern responsive UI',
+                        'Laravel API backend',
+                        'Vue.js SPA frontend'
+                    ],
+                    'github' => 'https://github.com/lakibul/laravel-chat.git'
+                ],
+                [
+                    'name' => 'Product Management System',
+                    'description' => 'Multi-authentication system with unified login form for Admin and Merchant roles. Admin creates and manages products while merchants handle inventory management.',
+                    'technologies' => ['Laravel', 'MySQL', 'Multi-Authentication', 'Role Management'],
+                    'features' => [
+                        'Multi-authentication with single login form',
+                        'Role-based access for Admin and Merchant',
+                        'Product creation and management by Admin',
+                        'Inventory management by Merchants',
+                        'Comprehensive API documentation',
+                        'Role-based permission system'
+                    ],
+                    'github' => 'https://github.com/lakibul/product-manage'
+                ],
+                [
+                    'name' => 'Recognition of Leaf Blight and Fruit Rot Diseases of Eggplant using Transfer Learning',
+                    'description' => 'Machine Learning thesis-based research paper focusing on disease recognition in eggplants using advanced transfer learning techniques.',
+                    'technologies' => ['Python', 'TensorFlow', 'Transfer Learning', 'Computer Vision', 'Machine Learning'],
+                    'features' => [
+                        'Disease recognition in eggplant crops',
+                        'Transfer learning implementation',
+                        'Computer vision techniques',
+                        'Agricultural technology application',
+                        'Research-based thesis project',
+                        'Deep learning model development'
+                    ],
+                    'github' => '#'
                 ]
             ],
             'education' => [
                 [
-                    'degree' => 'Bachelor of Science in Computer Science',
-                    'institution' => 'University of Dhaka',
-                    'period' => '2018 - 2022',
-                    'location' => 'Dhaka, Bangladesh'
+                    'degree' => 'BSc in Computer Science & Engineering',
+                    'institution' => 'Daffodil International University',
+                    'period' => '2017 - 2021',
+                    'location' => 'Dhaka, Bangladesh',
+                    'cgpa' => '3.36 out of 4.00'
+                ],
+                [
+                    'degree' => 'Higher Secondary Certificate (HSC)',
+                    'institution' => 'Govt. Haji Mohammad Mohsin College',
+                    'period' => '2016',
+                    'location' => 'Chittagong, Bangladesh',
+                    'gpa' => '4.50 out of 5.00',
+                    'group' => 'Science'
+                ],
+                [
+                    'degree' => 'Secondary School Certificate (SSC)',
+                    'institution' => 'Chittagong Collegiate School',
+                    'period' => '2014',
+                    'location' => 'Chittagong, Bangladesh',
+                    'gpa' => '5.00 out of 5.00',
+                    'group' => 'Science'
                 ]
             ],
             'certifications' => [
-                'AWS Certified Developer - Associate',
-                'Laravel Certified Developer',
-                'MongoDB Certified Developer'
+                'Training on PHP Laravel - BASIS-BITM (16/01/2022 – 16/03/2022)',
+                'Data Structures And Algorithms - Bohubrihi',
+                'Professional Web Development',
+                'Machine Learning Fundamentals'
             ]
         ];
 
