@@ -3,8 +3,8 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
-        "vercel-build": "echo 'No build required for static Laravel portfolio'"
+        "build": "echo 'No build step required for PHP Laravel project'",
+        "vercel-build": "echo 'No build step required for PHP Laravel project'"
     },
     "devDependencies": {
         "axios": "^1.6.4",
