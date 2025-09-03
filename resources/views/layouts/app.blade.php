@@ -350,8 +350,11 @@
 
                     <!-- Mobile menu button -->
                     <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
                 </div>
@@ -641,10 +644,20 @@
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
 
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+
+                // Toggle icons
+                if (menuIcon && closeIcon) {
+                    menuIcon.classList.toggle('hidden');
+                    closeIcon.classList.toggle('hidden');
+                }
+            });
+        }
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -657,7 +670,19 @@
                         block: 'start'
                     });
                     // Close mobile menu if open
-                    mobileMenu.classList.add('hidden');
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const menuIcon = document.getElementById('menu-icon');
+                    const closeIcon = document.getElementById('close-icon');
+
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+
+                        // Reset icons to menu state
+                        if (menuIcon && closeIcon) {
+                            menuIcon.classList.remove('hidden');
+                            closeIcon.classList.add('hidden');
+                        }
+                    }
                 }
             });
         });
@@ -813,12 +838,20 @@
             }
 
             initNavigation() {
-                const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+                const mobileMenuToggle = document.getElementById('mobile-menu-button');
                 const mobileMenu = document.getElementById('mobile-menu');
+                const menuIcon = document.getElementById('menu-icon');
+                const closeIcon = document.getElementById('close-icon');
 
                 if (mobileMenuToggle && mobileMenu) {
                     mobileMenuToggle.addEventListener('click', () => {
                         mobileMenu.classList.toggle('hidden');
+
+                        // Toggle icons
+                        if (menuIcon && closeIcon) {
+                            menuIcon.classList.toggle('hidden');
+                            closeIcon.classList.toggle('hidden');
+                        }
                     });
                 }
 
@@ -833,6 +866,21 @@
                                 top: offsetTop,
                                 behavior: 'smooth'
                             });
+
+                            // Close mobile menu if open
+                            const mobileMenu = document.getElementById('mobile-menu');
+                            const menuIcon = document.getElementById('menu-icon');
+                            const closeIcon = document.getElementById('close-icon');
+
+                            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                                mobileMenu.classList.add('hidden');
+
+                                // Reset icons to menu state
+                                if (menuIcon && closeIcon) {
+                                    menuIcon.classList.remove('hidden');
+                                    closeIcon.classList.add('hidden');
+                                }
+                            }
                         }
                     });
                 });
