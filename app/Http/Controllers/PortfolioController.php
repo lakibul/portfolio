@@ -38,8 +38,7 @@ class PortfolioController extends Controller
                         'Built CRM software with real-time chat functionality using Pusher and CodeIgniter v3',
                         'Migrated legacy PHP systems to Laravel framework with improved performance',
                         'Performed data scraping, API integration, query optimization, database design, and indexing',
-                        'Delivered dynamic websites, e-commerce platforms, and web-based tools using Laravel, CodeIgniter, Node.js, and Bootstrap',
-                        'Developed REST APIs for mobile applications'
+                        'Delivered dynamic websites, e-commerce platforms, and web-based tools using Laravel, CodeIgniter, Node.js, and Bootstrap'
                     ]
                 ],
                 [
@@ -69,7 +68,7 @@ class PortfolioController extends Controller
                         'Payment integration with multiple gateways'
                     ],
                     'github' => '#',
-                    'link' => 'https://play.google.com/store/search?q=wyzr&c=apps&hl=en'
+                    'link' => 'https://play.google.com/store/apps/details?id=com.wyzr.app.wyzr&hl=en'
                 ],
                 [
                     'name' => 'Walltouch (Multivendor E-Commerce)',
@@ -205,7 +204,6 @@ class PortfolioController extends Controller
             'certifications' => [
                 'Training on PHP Laravel - BASIS-BITM (16/01/2022 – 16/03/2022)',
                 'Data Structures And Algorithms - Bohubrihi',
-                'Professional Web Development',
                 'Machine Learning Fundamentals'
             ]
         ];

@@ -385,9 +385,9 @@
                 <p class="text-gray-600 dark:text-gray-400">
                     &copy; {{ date('Y') }} Md Lakibul Hasan. All rights reserved.
                 </p>
-                <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
+                {{-- <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
                     Built with Laravel & Tailwind CSS
-                </p>
+                </p> --}}
             </div>
         </div>
     </footer>
