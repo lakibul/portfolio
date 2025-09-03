@@ -35,7 +35,7 @@
     </nav> --}}
 
     <!-- Enhanced Hero Section -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="" class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <!-- Softer Animated Background -->
         <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
             <!-- Subtle Animated Mesh Gradient -->
@@ -229,7 +229,7 @@
         </div>
 
         <!-- Subtle Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2">
             <div class="flex flex-col items-center space-y-2 animate-bounce">
                 <div class="w-5 h-8 border border-slate-500/50 rounded-full flex justify-center">
                     <div
