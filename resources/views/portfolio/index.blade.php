@@ -100,12 +100,12 @@
 
                         <!-- Holographic Border -->
                         <div
-                            class="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full blur-md opacity-30 group-hover:opacity-60 transition-opacity duration-500 animate-pulse-glow">
+                            class="absolute -inset-2 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-full blur-md opacity-30">
                         </div>
 
                         <!-- Profile Image -->
                         <div
-                            class="relative z-10 w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden group-hover:scale-105 transition-transform duration-500 transform-gpu">
+                            class="relative z-10 w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden">
                             <img src="https://lh3.googleusercontent.com/a/ACg8ocLFK5vvN32fPzvUhu64r5jqHsPSoBxarGi0SZgVwm02iRmRqGSupNkQXj8VAlV95DLT77YtJNSkX4PaLJlQYV0s2CqRnpJB=s288-c-no"
                                 alt="{{ $data['name'] }}"
                                 class="w-full h-full object-cover filter brightness-110 contrast-110 saturate-110"
@@ -162,25 +162,22 @@
                     <!-- Enhanced CTA Buttons with Softer Design -->
                     <div class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up-delay-3">
                         <a href="#contact"
-                            class="group relative px-8 py-3 bg-gradient-to-r from-cyan-500/90 to-blue-600/90 text-white rounded-xl font-medium text-base shadow-lg hover:shadow-cyan-500/20 transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] backdrop-blur-sm">
+                            class="relative px-8 py-3 bg-gradient-to-r from-cyan-500/90 to-blue-600/90 text-white rounded-xl font-medium text-base shadow-lg backdrop-blur-sm hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                             <span class="relative z-10 flex items-center justify-center">
                                 <span class="mr-2">Let's Connect</span>
-                                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+                                <svg class="w-4 h-4"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                                 </svg>
                             </span>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-r from-blue-600/90 to-purple-600/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl">
-                            </div>
                         </a>
 
                         <a href="{{ route('portfolio.download-cv') }}"
-                            class="group relative px-8 py-3 border border-slate-600/50 text-slate-300 rounded-xl font-medium text-base transition-all duration-300 transform hover:-translate-y-1 hover:scale-[1.02] backdrop-blur-sm bg-slate-800/30 hover:bg-slate-700/40 hover:border-cyan-400/50 hover:text-cyan-300">
+                            class="relative px-8 py-3 border border-slate-600/50 text-slate-300 rounded-xl font-medium text-base backdrop-blur-sm bg-slate-800/30 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                             <span class="flex items-center justify-center">
                                 <span class="mr-2">Download CV</span>
-                                <svg class="w-4 h-4 transform group-hover:translate-y-0.5 transition-transform duration-300"
+                                <svg class="w-4 h-4"
                                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
@@ -194,9 +191,9 @@
 
                 <!-- Social Links with Softer Design -->
                 <div class="flex justify-center space-x-6 mt-12 animate-slide-up-delay-4">
-                    <a href="{{ $data['linkedin'] }}" target="_blank" class="group">
+                    <a href="{{ $data['linkedin'] }}" target="_blank">
                         <div
-                            class="relative w-12 h-12 bg-slate-800/50 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-400 hover:text-blue-400 transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 border border-slate-700/50 hover:border-blue-400/30 hover:bg-slate-700/50">
+                            class="relative w-12 h-12 bg-slate-800/50 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-400 border border-slate-700/50 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -204,9 +201,9 @@
                         </div>
                     </a>
 
-                    <a href="{{ $data['github'] }}" target="_blank" class="group">
+                    <a href="{{ $data['github'] }}" target="_blank">
                         <div
-                            class="relative w-12 h-12 bg-slate-800/50 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-200 transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 border border-slate-700/50 hover:border-slate-400/30 hover:bg-slate-700/50">
+                            class="relative w-12 h-12 bg-slate-800/50 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-400 border border-slate-700/50 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -214,9 +211,9 @@
                         </div>
                     </a>
 
-                    <a href="mailto:{{ $data['email'] }}" class="group">
+                    <a href="mailto:{{ $data['email'] }}">
                         <div
-                            class="relative w-12 h-12 bg-slate-800/50 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-all duration-300 transform hover:-translate-y-1 hover:scale-110 border border-slate-700/50 hover:border-cyan-400/30 hover:bg-slate-700/50">
+                            class="relative w-12 h-12 bg-slate-800/50 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-400 border border-slate-700/50 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
@@ -274,10 +271,7 @@
             <!-- Compact Content Layout -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 <!-- Summary Card -->
-                <div class="lg:col-span-2 group relative">
-                    <div
-                        class="absolute -inset-0.5 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
+                <div class="lg:col-span-2 relative">
                     <div
                         class="relative bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-slate-700/40 card-soft">
                         <div class="flex items-start mb-4">
@@ -301,27 +295,27 @@
 
                         <!-- Compact Stats -->
                         <div class="grid grid-cols-4 gap-3">
-                            <div class="text-center group/stat">
+                            <div class="text-center">
                                 <div
-                                    class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-1 group-hover/stat:scale-105 transition-transform duration-300">
+                                    class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent mb-1">
                                     3+</div>
                                 <div class="text-xs text-slate-400">Years</div>
                             </div>
-                            <div class="text-center group/stat">
+                            <div class="text-center">
                                 <div
-                                    class="text-2xl font-bold bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent mb-1 group-hover/stat:scale-105 transition-transform duration-300">
+                                    class="text-2xl font-bold bg-gradient-to-r from-green-400 to-teal-500 bg-clip-text text-transparent mb-1">
                                     10+</div>
                                 <div class="text-xs text-slate-400">Projects</div>
                             </div>
-                            <div class="text-center group/stat">
+                            <div class="text-center">
                                 <div
-                                    class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-1 group-hover/stat:scale-105 transition-transform duration-300">
+                                    class="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent mb-1">
                                     5+</div>
                                 <div class="text-xs text-slate-400">Technologies</div>
                             </div>
-                            <div class="text-center group/stat">
+                            <div class="text-center">
                                 <div
-                                    class="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent mb-1 group-hover/stat:scale-105 transition-transform duration-300">
+                                    class="text-2xl font-bold bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent mb-1">
                                     ∞</div>
                                 <div class="text-xs text-slate-400">Learning</div>
                             </div>
@@ -330,10 +324,7 @@
                 </div>
 
                 <!-- Compact Skills Card -->
-                <div class="group relative">
-                    <div
-                        class="absolute -inset-0.5 bg-gradient-to-r from-purple-400/20 to-cyan-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500">
-                    </div>
+                <div class="relative">
                     <div
                         class="relative bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-slate-700/40 h-full card-soft">
                         <h4 class="text-lg font-bold text-white mb-4 text-center">Core Skills</h4>
@@ -431,19 +422,14 @@
             <!-- Compact Skills Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
                 @foreach ($data['skills'] as $category => $skillList)
-                    <div class="group relative">
-                        <!-- Subtle Animated Border -->
-                        <div
-                            class="absolute -inset-0.5 bg-gradient-to-r from-cyan-400/30 to-blue-500/30 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500">
-                        </div>
-
+                    <div class="relative">
                         <!-- Compact Card Content -->
                         <div
-                            class="relative bg-slate-800/80 backdrop-blur-sm rounded-xl p-5 border border-slate-700/40 h-full transform group-hover:-translate-y-1 transition-all duration-300 card-soft">
+                            class="relative bg-slate-800/80 backdrop-blur-sm rounded-xl p-5 border border-slate-700/40 h-full card-soft">
                             <!-- Minimalistic Category Header -->
                             <div class="flex items-center mb-4">
                                 <div
-                                    class="w-8 h-8 bg-gradient-to-r from-cyan-500/80 to-blue-600/80 rounded-lg flex items-center justify-center mr-3 group-hover:scale-105 transition-transform duration-300">
+                                    class="w-8 h-8 bg-gradient-to-r from-cyan-500/80 to-blue-600/80 rounded-lg flex items-center justify-center mr-3">
                                     <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         @if ($category === 'Backend')
@@ -475,12 +461,12 @@
                             <div class="space-y-2 mb-4">
                                 @foreach (array_slice($skillList, 0, 4) as $skill)
                                     <div
-                                        class="group/skill flex items-center p-2 rounded-lg bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-200">
+                                        class="flex items-center p-2 rounded-lg bg-slate-700/30">
                                         <div
-                                            class="w-1.5 h-1.5 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mr-2 group-hover/skill:scale-125 transition-transform duration-200">
+                                            class="w-1.5 h-1.5 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mr-2">
                                         </div>
                                         <span
-                                            class="text-slate-300 group-hover/skill:text-white transition-colors duration-200 text-sm font-medium">{{ $skill }}</span>
+                                            class="text-slate-300 text-sm font-medium">{{ $skill }}</span>
                                     </div>
                                 @endforeach
                                 @if (count($skillList) > 4)
@@ -535,14 +521,11 @@
                         ];
                     @endphp
                     @foreach ($exploringTech as $tech)
-                        <div class="group relative">
+                        <div class="relative">
                             <div
-                                class="absolute -inset-0.5 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition duration-300">
-                            </div>
-                            <div
-                                class="relative bg-slate-800/60 backdrop-blur-sm rounded-lg px-4 py-2 border border-slate-700/40 group-hover:transform group-hover:-translate-y-0.5 transition-all duration-300">
+                                class="relative bg-slate-800/60 backdrop-blur-sm rounded-lg px-4 py-2 border border-slate-700/40">
                                 <span
-                                    class="text-slate-300 group-hover:text-white text-sm font-medium">{{ $tech }}</span>
+                                    class="text-slate-300 text-sm font-medium">{{ $tech }}</span>
                             </div>
                         </div>
                     @endforeach
@@ -676,15 +659,10 @@
             <!-- Enhanced Projects Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach ($data['projects'] as $index => $project)
-                    <div class="group relative">
-                        <!-- Animated Border -->
-                        <div
-                            class="absolute -inset-1 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 rounded-3xl blur opacity-20 group-hover:opacity-60 transition duration-1000">
-                        </div>
-
+                    <div class="relative">
                         <!-- Project Card -->
                         <div
-                            class="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-700/50 transform group-hover:-translate-y-1 group-hover:scale-[1.01] transition-all duration-300">
+                            class="relative bg-slate-800/90 backdrop-blur-xl rounded-2xl overflow-hidden border border-slate-700/50">
                             <!-- Project Header -->
                             <div class="relative p-6 bg-gradient-to-br from-slate-800/50 to-slate-900/50">
                                 <!-- Project Number -->
@@ -706,12 +684,9 @@
                                 <!-- Tech Stack Pills -->
                                 <div class="flex flex-wrap gap-1 mb-4">
                                     @foreach (array_slice($project['technologies'], 0, 3) as $tech)
-                                        <div class="group/tech relative">
-                                            <div
-                                                class="absolute -inset-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full blur opacity-20 group-hover/tech:opacity-50 transition duration-300">
-                                            </div>
+                                        <div class="relative">
                                             <span
-                                                class="relative bg-slate-700/80 backdrop-blur-sm text-cyan-300 px-3 py-1 rounded-full text-xs font-medium border border-slate-600/50 group-hover/tech:border-cyan-400/50 transition-all duration-300">
+                                                class="relative bg-slate-700/80 backdrop-blur-sm text-cyan-300 px-3 py-1 rounded-full text-xs font-medium border border-slate-600/50">
                                                 {{ $tech }}
                                             </span>
                                         </div>
@@ -737,12 +712,12 @@
                                 </h4>
                                 <div class="space-y-2 mb-6">
                                     @foreach (array_slice($project['features'], 0, 2) as $feature)
-                                        <div class="flex items-start group/feature">
+                                        <div class="flex items-start">
                                             <div
-                                                class="w-1.5 h-1.5 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mt-1.5 mr-2 group-hover/feature:scale-125 transition-transform duration-300">
+                                                class="w-1.5 h-1.5 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full mt-1.5 mr-2">
                                             </div>
                                             <span
-                                                class="text-gray-300 group-hover/feature:text-white transition-colors duration-300 text-sm leading-relaxed">{{ $feature }}</span>
+                                                class="text-gray-300 text-sm leading-relaxed">{{ $feature }}</span>
                                         </div>
                                     @endforeach
                                     @if (count($project['features']) > 2)
@@ -758,63 +733,44 @@
                                     @if (!empty($project['link']))
 
                                         <a href="{{ $project['link'] }}" target="_blank"
-                                            class="group/btn relative inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 text-white rounded-xl font-semibold text-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/30 hover:-translate-y-1 hover:scale-105 transform">
-                                            <!-- Animated Background -->
-                                            <div class="absolute inset-0 bg-gradient-to-r from-teal-600 via-emerald-600 to-cyan-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-
-                                            <!-- Button Content -->
+                                            class="relative inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 text-white rounded-xl font-semibold text-sm hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                                             <span class="relative z-10 flex items-center">
-                                                <svg class="w-4 h-4 mr-2 transition-transform duration-300 group-hover/btn:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                                                 </svg>
                                                 Live Demo
                                             </span>
-
-                                            <!-- Shine Effect -->
-                                            <div class="absolute inset-0 -top-1 -left-1 bg-gradient-to-r from-transparent via-white/20 to-transparent rotate-12 w-8 opacity-0 group-hover/btn:opacity-100 group-hover/btn:animate-ping transition-all duration-500"></div>
                                         </a>
                                     @elseif(!empty($project['github']))
                                         <a href="{{ $project['github'] }}" target="_blank"
-                                            class="group/btn relative inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-purple-500 via-violet-500 to-indigo-500 text-white rounded-xl font-semibold text-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/30 hover:-translate-y-1 hover:scale-105 transform">
+                                            class="relative inline-flex items-center px-5 py-2.5 bg-gradient-to-r from-purple-500 via-violet-500 to-indigo-500 text-white rounded-xl font-semibold text-sm hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                                             <span class="relative z-10 flex items-center">
-                                                <svg class="w-4 h-4 mr-2 transition-transform duration-300 group-hover/btn:rotate-12" fill="currentColor" viewBox="0 0 24 24">
+                                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
                                                     <path
                                                         d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                                 </svg>
                                                 View Code
                                             </span>
-                                            <!-- Animated Background -->
-                                            <div class="absolute inset-0 bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-
-                                            <!-- Code Brackets Animation -->
-                                            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover/btn:opacity-20 transition-opacity duration-300">
-                                                <span class="text-white font-mono text-xs animate-pulse">&lt;/&gt;</span>
-                                            </div>
                                         </a>
                                     @endif
 
                                     <!-- Enhanced Project Status -->
-                                    <div class="flex items-center group">
+                                    <div class="flex items-center">
                                         @if (!empty($project['link']))
                                             <!-- Live Status -->
-                                            <div class="w-2.5 h-2.5 bg-green-400 rounded-full animate-pulse mr-2 group-hover:scale-125 transition-transform duration-300"></div>
+                                            <div class="w-2.5 h-2.5 bg-green-400 rounded-full mr-2"></div>
                                             <span class="text-green-400 font-semibold text-xs uppercase tracking-wide">Live</span>
                                         @elseif(!empty($project['github']))
                                             <!-- Development Status -->
-                                            <div class="w-2.5 h-2.5 bg-blue-400 rounded-full animate-pulse mr-2 group-hover:scale-125 transition-transform duration-300"></div>
+                                            <div class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-2"></div>
                                             <span class="text-blue-400 font-semibold text-xs uppercase tracking-wide">Open Source</span>
                                         @else
                                             <!-- Development Status -->
-                                            <div class="w-2.5 h-2.5 bg-orange-400 rounded-full animate-pulse mr-2 group-hover:scale-125 transition-transform duration-300"></div>
+                                            <div class="w-2.5 h-2.5 bg-orange-400 rounded-full mr-2"></div>
                                             <span class="text-orange-400 font-semibold text-xs uppercase tracking-wide">In Progress</span>
                                         @endif
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Hover Effect Overlay -->
-                            <div
-                                class="absolute inset-0 bg-gradient-to-br from-cyan-400/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
                             </div>
                         </div>
                     </div>
@@ -832,7 +788,7 @@
                             Check out my GitHub for more projects and contributions.
                         </p>
                         <a href="{{ $data['github'] }}" target="_blank"
-                            class="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-medium text-sm hover:shadow-lg hover:shadow-cyan-500/25 transition-all duration-300 hover:-translate-y-0.5">
+                            class="inline-flex items-center px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg font-medium text-sm hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                             <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 24 24">
                                 <path
                                     d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -881,10 +837,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Contact Information -->
                 <div class="space-y-6">
-                    <div class="group relative">
-                        <div
-                            class="absolute -inset-0.5 bg-gradient-to-r from-cyan-400/20 to-blue-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500">
-                        </div>
+                    <div class="relative">
                         <div
                             class="relative bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-slate-700/40 card-soft">
                             <h3 class="text-xl font-bold text-white mb-4 flex items-center">
@@ -900,7 +853,7 @@
                             <div class="space-y-4">
                                 <!-- Email -->
                                 <div
-                                    class="flex items-center p-3 bg-slate-700/30 rounded-lg hover:bg-slate-700/50 transition-colors duration-300">
+                                    class="flex items-center p-3 bg-slate-700/30 rounded-lg">
                                     <div
                                         class="w-10 h-10 bg-gradient-to-r from-cyan-500/80 to-blue-600/80 rounded-lg flex items-center justify-center mr-3">
                                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
@@ -913,7 +866,7 @@
                                     <div>
                                         <p class="text-xs text-slate-400 mb-1">Email</p>
                                         <a href="mailto:{{ $data['email'] }}"
-                                            class="text-sm font-medium text-cyan-400 hover:text-cyan-300 transition-colors">
+                                            class="text-sm font-medium text-cyan-400">
                                             {{ $data['email'] }}
                                         </a>
                                     </div>
@@ -921,7 +874,7 @@
 
                                 <!-- Phone -->
                                 <div
-                                    class="flex items-center p-3 bg-slate-700/30 rounded-lg hover:bg-slate-700/50 transition-colors duration-300">
+                                    class="flex items-center p-3 bg-slate-700/30 rounded-lg">
                                     <div
                                         class="w-10 h-10 bg-gradient-to-r from-green-500/80 to-teal-600/80 rounded-lg flex items-center justify-center mr-3">
                                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
@@ -934,7 +887,7 @@
                                     <div>
                                         <p class="text-xs text-slate-400 mb-1">Phone</p>
                                         <a href="tel:{{ $data['phone'] }}"
-                                            class="text-sm font-medium text-green-400 hover:text-green-300 transition-colors">
+                                            class="text-sm font-medium text-green-400">
                                             {{ $data['phone'] }}
                                         </a>
                                     </div>
@@ -942,7 +895,7 @@
 
                                 <!-- Location -->
                                 <div
-                                    class="flex items-center p-3 bg-slate-700/30 rounded-lg hover:bg-slate-700/50 transition-colors duration-300">
+                                    class="flex items-center p-3 bg-slate-700/30 rounded-lg">
                                     <div
                                         class="w-10 h-10 bg-gradient-to-r from-purple-500/80 to-pink-600/80 rounded-lg flex items-center justify-center mr-3">
                                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
@@ -965,12 +918,9 @@
                             <div class="mt-6 pt-4 border-t border-slate-600/30">
                                 <h4 class="text-sm font-semibold text-slate-300 mb-3">Connect With Me</h4>
                                 <div class="flex space-x-3">
-                                    <a href="{{ $data['linkedin'] }}" target="_blank" class="group/social relative">
+                                    <a href="{{ $data['linkedin'] }}" target="_blank" class="relative">
                                         <div
-                                            class="absolute -inset-0.5 bg-gradient-to-r from-blue-400/20 to-blue-600/20 rounded-lg blur opacity-0 group-hover/social:opacity-100 transition duration-300">
-                                        </div>
-                                        <div
-                                            class="relative w-10 h-10 bg-slate-700/60 backdrop-blur-sm rounded-lg flex items-center justify-center text-blue-400 hover:text-white border border-slate-600/50 hover:border-blue-400/50 transition-all duration-300 transform hover:-translate-y-0.5">
+                                            class="relative w-10 h-10 bg-slate-700/60 backdrop-blur-sm rounded-lg flex items-center justify-center text-blue-400 border border-slate-600/50 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                                 <path
                                                     d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -978,12 +928,9 @@
                                         </div>
                                     </a>
 
-                                    <a href="{{ $data['github'] }}" target="_blank" class="group/social relative">
+                                    <a href="{{ $data['github'] }}" target="_blank" class="relative">
                                         <div
-                                            class="absolute -inset-0.5 bg-gradient-to-r from-slate-400/20 to-slate-600/20 rounded-lg blur opacity-0 group-hover/social:opacity-100 transition duration-300">
-                                        </div>
-                                        <div
-                                            class="relative w-10 h-10 bg-slate-700/60 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-400 hover:text-white border border-slate-600/50 hover:border-slate-400/50 transition-all duration-300 transform hover:-translate-y-0.5">
+                                            class="relative w-10 h-10 bg-slate-700/60 backdrop-blur-sm rounded-lg flex items-center justify-center text-slate-400 border border-slate-600/50 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                                 <path
                                                     d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
@@ -997,9 +944,9 @@
                 </div>
 
                 <!-- Compact Contact Form -->
-                <div class="group relative">
+                <div class="relative">
                     <div
-                        class="absolute -inset-0.5 bg-gradient-to-r from-purple-400/20 to-cyan-500/20 rounded-xl blur opacity-0 group-hover:opacity-100 transition duration-500">
+                        class="absolute -inset-0.5 bg-gradient-to-r from-purple-400/20 to-cyan-500/20 rounded-xl">
                     </div>
                     <div
                         class="relative bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-slate-700/40 card-soft">
