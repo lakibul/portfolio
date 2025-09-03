@@ -27,7 +27,7 @@
             <div class="mb-12 group">
                 <div class="relative inline-block">
                     <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500 animate-pulse"></div>
-                    <img src="{{ asset('assets/images/profile.jpg') }}" alt="{{ $data['name'] }}"
+                    <img src="https://media.licdn.com/dms/image/v2/C5603AQGM5nSSkwlP9A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1641277093358?e=1759968000&v=beta&t=3FCtVXSzu_b-81dvfLxIQiZ403pl__WZwDH4JpNl-wo" alt="{{ $data['name'] }}"
                          class="relative w-40 h-40 md:w-48 md:h-48 rounded-full mx-auto shadow-2xl border-4 border-white dark:border-gray-700 object-cover transform group-hover:scale-105 transition-all duration-500"
                          onerror="this.src='https://ui-avatars.com/api/?name={{ urlencode($data['name']) }}&size=192&background=3b82f6&color=ffffff'">
 
