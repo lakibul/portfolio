@@ -106,7 +106,7 @@
                         <!-- Profile Image -->
                         <div
                             class="relative z-10 w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden">
-                            <img src="https://ibb.co.com/20NRQYKK"
+                            <img src="https://i.ibb.co.com/6cBGxJss/profile2.jpg"
                                 alt="{{ $data['name'] }}"
                                 class="w-full h-full object-cover filter brightness-110 contrast-110 saturate-110"
                                 onerror="this.src='https://ui-avatars.com/api/?name={{ urlencode($data['name']) }}&size=224&background=3b82f6&color=ffffff'">
