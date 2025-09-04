@@ -102,6 +102,20 @@ class PortfolioController extends Controller
                     'link' => 'https://simpleadmission.net'
                 ],
                 [
+                    'name' => 'BFSA-JICA',
+                    'description' => 'Project aimed at improving food safety standards in the hospitality industry.',
+                    'technologies' => ['Laravel', 'Bootstrap', 'MySQL', 'Flutter'],
+                    'features' => [
+                        'Involves surveys, inspections, swab tests, and sample tests for health standards compliance.',
+                        'Monitored food handling practices and hygiene rigorously.',
+                        'Admission process tracking',
+                        'Document management',
+                        'Admin dashboard for Food safety officers'
+                    ],
+                    'github' => '#',
+                    'link' => 'https://bfsastirc.com/'
+                ],
+                [
                     'name' => 'Hipe - ERP Hotel Management System',
                     'description' => 'Comprehensive ERP hotel management system with React.js frontend, Firebase live chat, Node.js APIs for mobile & scraping, and CodeIgniter admin panel. Features integrated Google Translation API with MongoDB caching for efficient multilingual support.',
                     'technologies' => ['React.js', 'Firebase', 'Node.js', 'CodeIgniter', 'MongoDB', 'Google Translation API'],

@@ -469,37 +469,31 @@
                                             class="text-slate-300 text-sm font-medium">{{ $skill }}</span>
                                     </div>
                                 @endforeach
-                                @if (count($skillList) > 4)
-                                    <div class="text-slate-400 text-xs text-center pt-1">
-                                        +{{ count($skillList) - 4 }} more
+
+                                <!-- Hidden Skills -->
+                                @if (count($skillList) > 5)
+                                    <div id="hidden-skills-{{ $loop->index }}" class="hidden space-y-2">
+                                        @foreach (array_slice($skillList, 4) as $skill)
+                                            <div
+                                                class="flex items-center p-2 rounded-lg bg-slate-700/30">
+                                                <div
+                                                    class="w-1.5 h-1.5 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full mr-2">
+                                                </div>
+                                                <span
+                                                    class="text-slate-300 text-sm font-medium">{{ $skill }}</span>
+                                            </div>
+                                        @endforeach
+                                    </div>
+
+                                    <div class="text-center pt-1">
+                                        <button
+                                            onclick="toggleSkills({{ $loop->index }})"
+                                            class="text-slate-400 hover:text-cyan-400 text-xs cursor-pointer transition-colors duration-200 focus:outline-none"
+                                            id="toggle-btn-{{ $loop->index }}">
+                                            +{{ count($skillList) - 4 }} more
+                                        </button>
                                     </div>
                                 @endif
-                            </div>
-
-                            <!-- Compact Skill Level Indicator -->
-                            <div class="pt-3 border-t border-slate-600/30">
-                                <div class="flex items-center justify-between text-xs mb-2">
-                                    <span class="text-slate-400">Proficiency</span>
-                                    <span class="text-cyan-400 font-semibold">
-                                        @if ($category === 'Backend')
-                                            95%
-                                        @elseif($category === 'Frontend')
-                                            88%
-                                        @elseif($category === 'Database')
-                                            92%
-                                        @elseif($category === 'Tools')
-                                            85%
-                                        @else
-                                            90%
-                                        @endif
-                                    </span>
-                                </div>
-                                <div class="h-1.5 bg-slate-700/50 rounded-full overflow-hidden">
-                                    <div class="h-full bg-gradient-to-r from-cyan-500/80 to-blue-500/80 rounded-full skill-progress"
-                                        data-width="@if ($category === 'Backend') 95%@elseif($category === 'Frontend')88%@elseif($category === 'Database')92%@elseif($category === 'Tools')85%@else90% @endif"
-                                        style="width: 0%; transition: width 1.5s ease-in-out;">
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -523,7 +517,7 @@
                     @foreach ($exploringTech as $tech)
                         <div class="relative">
                             <div
-                                class="relative bg-slate-800/60 backdrop-blur-sm rounded-lg px-4 py-2 border border-slate-700/40">
+                                class="relative bg-slate-800/60 backdrop-blur-sm rounded-lg px-4 py-2 border border-slate-700/40 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                                 <span
                                     class="text-slate-300 text-sm font-medium">{{ $tech }}</span>
                             </div>
@@ -590,7 +584,7 @@
                     <div
                         class="bg-gray-50 dark:bg-dark-800 p-6 rounded-lg shadow-lg max-w-2xl mx-auto animate-fadeInUp animate-delay-100">
                         <h4 class="text-1xl font-semibold text-gray-900 dark:text-white">{{ $edu['degree'] }}</h4>
-                        <p class="text-primary-600 font-medium">{{ $edu['institution'] }}</p>
+                        <p class="text-primary-600 font-weight-normal">{{ $edu['institution'] }}</p>
                         <p class="text-gray-600 dark:text-gray-400">{{ $edu['location'] }} • {{ $edu['period'] }}</p>
                     </div>
                 @endforeach
@@ -855,7 +849,7 @@
                                 <div
                                     class="flex items-center p-3 bg-slate-700/30 rounded-lg">
                                     <div
-                                        class="w-10 h-10 bg-gradient-to-r from-cyan-500/80 to-blue-600/80 rounded-lg flex items-center justify-center mr-3">
+                                        class="w-10 h-10 bg-gradient-to-r from-cyan-500/80 to-blue-600/80 rounded-lg flex items-center justify-center mr-3 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -876,7 +870,7 @@
                                 <div
                                     class="flex items-center p-3 bg-slate-700/30 rounded-lg">
                                     <div
-                                        class="w-10 h-10 bg-gradient-to-r from-green-500/80 to-teal-600/80 rounded-lg flex items-center justify-center mr-3">
+                                        class="w-10 h-10 bg-gradient-to-r from-green-500/80 to-teal-600/80 rounded-lg flex items-center justify-center mr-3 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -897,7 +891,7 @@
                                 <div
                                     class="flex items-center p-3 bg-slate-700/30 rounded-lg">
                                     <div
-                                        class="w-10 h-10 bg-gradient-to-r from-purple-500/80 to-pink-600/80 rounded-lg flex items-center justify-center mr-3">
+                                        class="w-10 h-10 bg-gradient-to-r from-purple-500/80 to-pink-600/80 rounded-lg flex items-center justify-center mr-3 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
                                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor"
                                             viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -1449,6 +1443,34 @@
             // Download CV function
             downloadCV: () => {
                 window.open('{{ route('portfolio.download-cv') }}', '_blank');
+            }
+        };
+
+        // Toggle skills visibility function
+        window.toggleSkills = (categoryIndex) => {
+            const hiddenSkills = document.getElementById(`hidden-skills-${categoryIndex}`);
+            const toggleBtn = document.getElementById(`toggle-btn-${categoryIndex}`);
+
+            if (hiddenSkills && toggleBtn) {
+                if (hiddenSkills.classList.contains('hidden')) {
+                    // Show hidden skills
+                    hiddenSkills.classList.remove('hidden');
+                    hiddenSkills.classList.add('animate-fadeIn');
+                    toggleBtn.textContent = 'Show less';
+                    toggleBtn.classList.add('text-cyan-400');
+                    toggleBtn.classList.remove('text-slate-400');
+                } else {
+                    // Hide skills
+                    hiddenSkills.classList.add('hidden');
+                    hiddenSkills.classList.remove('animate-fadeIn');
+
+                    // Get the original count from the data
+                    const skillItems = hiddenSkills.querySelectorAll('.flex');
+                    const count = skillItems.length;
+                    toggleBtn.textContent = `+${count} more`;
+                    toggleBtn.classList.remove('text-cyan-400');
+                    toggleBtn.classList.add('text-slate-400');
+                }
             }
         };
     </script>

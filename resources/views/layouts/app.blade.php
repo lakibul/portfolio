@@ -323,7 +323,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0">
-                    <a href="#hero" class="text-xl font-bold gradient-text">Lakibul Hasan</a>
+                    <a href="#hero" class="text-xl font-bold gradient-text">Md Lakibul Hasan</a>
                 </div>
 
                 <!-- Desktop Navigation -->
