@@ -173,8 +173,9 @@
                             </span>
                         </a>
 
-                        <a href="{{ route('portfolio.download-cv') }}"
-                            class="relative px-8 py-3 border border-slate-600/50 text-slate-300 rounded-xl font-medium text-base backdrop-blur-sm bg-slate-800/30 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">
+                        <a href="{{ asset('/') }}assets/cv/Md_Lakibul_Hasan_CV.pdf"
+                            class="relative px-8 py-3 border border-slate-600/50 text-slate-300 rounded-xl font-medium text-base backdrop-blur-sm bg-slate-800/30 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                            download="Md_Lakibul_Hasan_CV.pdf">
                             <span class="flex items-center justify-center">
                                 <span class="mr-2">Download CV</span>
                                 <svg class="w-4 h-4"
@@ -1034,11 +1035,12 @@
                     "Laravel",
                     "CodeIgniter",
                     "Node.js",
+                    "Vue.js",
+                    "React Basics",
                     "API Architecture",
                     "Third Party Integrations",
                     "Database Design",
-                    "System Design",
-                    "Clean code Architecture"
+                    "System Design"
                 ];
 
                 let currentTextIndex = 0;
