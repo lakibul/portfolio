@@ -10,35 +10,48 @@ class PortfolioController extends Controller
     {
         $data = [
             'name' => 'Md Lakibul Hasan',
-            'title' => 'Software Developer',
-            'tagline' => 'Building scalable web applications with modern technologies and third-party integrations',
+            'title' => 'Backend Software Engineer',
+            'tagline' => 'Building scalable APIs and backend systems with PHP, Node.js, and modern cloud technologies',
             'email' => 'lakibul.cse@gmail.com',
-            'phone' => '+880 01983-427887',
+            'phone' => '+880 01983-427887 | +880 01516-179534',
             'location' => 'Dhaka, Bangladesh',
             'linkedin' => 'https://www.linkedin.com/in/lakibul-hasan',
             'github' => 'https://github.com/lakibul',
-            'summary' => 'Software Developer with 3 years of experience in building scalable web applications using PHP (Laravel, CodeIgniter), Node JS, JavaScript, AJAX, Vue JS React JS, MySQL, MongoDB, HTML, CSS, Bootstrap with third party services integrations. Proficient in OOP, design patterns, and data structures, APIs. Also knowledgeable in Machine Learning and Deep Learning from research work.',
+            'summary' => 'Backend Software Engineer with 3+ years of experience building scalable APIs and backend systems using PHP (Laravel, CodeIgniter, Raw PHP), Node.js, and JavaScript. Experienced in microservices, payment integrations, and database optimization using MySQL, MongoDB, Redis, and Docker.',
             'skills' => [
-                'Languages' => ['C', 'C++', 'PHP', 'HTML', 'CSS', 'JavaScript'],
-                'Frameworks' => ['CodeIgniter (v3, v4)', 'Laravel (v5-v11)', 'Node.js', 'React.js', 'Vue.js'],
-                'Frontend' => ['Bootstrap', 'AJAX', 'jQuery'],
-                'Database' => ['MySQL', 'MongoDB', 'Firestore', 'Redis', 'Elasticsearch'],
-                'Tools' => ['Git', 'Composer', 'FileZilla', 'cPanel', 'IONOS', 'MQTT', 'Laravel Artisan CLI', 'Docker'],
-                'Concepts' => ['OOP', 'MVC', 'REST API', 'GraphQL', 'Design Patterns', 'DSA', 'ER & Class Diagrams']
+                'Languages' => ['PHP', 'JavaScript', 'HTML', 'CSS', 'C'],
+                'Frameworks' => ['CodeIgniter (v3, v4)', 'Laravel (v5-v11)', 'Node.js', 'Vue.js (Basic)'],
+                'Frontend' => ['Bootstrap', 'AJAX', 'jQuery', 'Responsive UI Design', 'SPA Architecture'],
+                'Database' => ['MySQL', 'PostgreSQL', 'MongoDB', 'DynamoDB', 'Firebase Firestore'],
+                'Tools' => ['Git', 'Docker', 'Composer', 'cPanel', 'FileZilla'],
+                'Concepts' => ['OOP', 'MVC', 'REST API', 'GraphQL', 'Design Patterns', 'DSA', 'Microservices', 'Docker']
             ],
             'experience' => [
                 [
-                    'title' => 'Software Developer',
+                    'title' => 'Backend Software Engineer',
                     'company' => 'ParallaxLogic InfoTech',
                     'location' => 'Shahjadpur, Gulshan',
-                    'period' => 'Jan 2023 – Present',
+                    'period' => 'Jan 2023 – Oct 2024',
                     'responsibilities' => [
-                        'Developed a social platform for older adults with chat, events, carpools, and timeline features using Laravel and Flutter',
+                        'Developed microservice-based backend systems for web and mobile applications',
+                        'Built a social platform for older adults with real-time chat, events, carpools, and timeline features using Laravel and Flutter',
                         'Contributed to an ERP-based hotel system using React.js, Firebase, Node.js, and CodeIgniter',
                         'Built CRM software with real-time chat functionality using Pusher and CodeIgniter v3',
+                        'Optimized MongoDB and MySQL queries, reducing database response time by 25%',
                         'Migrated legacy PHP systems to Laravel framework with improved performance',
-                        'Performed data scraping, API integration, query optimization, database design, and indexing',
                         'Delivered dynamic websites, e-commerce platforms, and web-based tools using Laravel, CodeIgniter, Node.js, and Bootstrap'
+                    ]
+                ],
+                [
+                    'title' => 'Freelance Backend Developer',
+                    'company' => 'Contract / Remote',
+                    'location' => 'Remote',
+                    'period' => '2024 – Present',
+                    'responsibilities' => [
+                        'Developed and maintained backend systems for E-commerce, SaaS, and ERP applications',
+                        'Implemented real-time chat, authentication, and payment integrations (Stripe, Google Pay, Apple Pay)',
+                        'Developed REST APIs for web and mobile applications',
+                        'Built SEO analytics platform integrating DataForSEO APIs for SERP rankings, search volume, and CPC data'
                     ]
                 ],
                 [

@@ -544,14 +544,15 @@
                     height: 3px;
                     background: linear-gradient(90deg, #3b82f6, #1d4ed8);
                     z-index: 9999;
-                    transition: width 0.3s ease;
+                    transition: width 0.1s linear;
                 `;
                 document.body.appendChild(progressBar);
 
+                let _ph = document.body.scrollHeight - window.innerHeight;
+                window.addEventListener('resize', () => { _ph = document.body.scrollHeight - window.innerHeight; }, { passive: true });
                 window.addEventListener('scroll', () => {
-                    const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-                    progressBar.style.width = scrollPercent + '%';
-                });
+                    progressBar.style.width = ((window.scrollY / _ph) * 100) + '%';
+                }, { passive: true });
             }
 
             setupPerformanceOptimizations() {
@@ -687,27 +688,29 @@
             });
         });
 
-        // Active navigation highlighting
+        // Active navigation highlighting (rAF-throttled, passive)
+        const _navSections = document.querySelectorAll('section[id]');
+        const _navLinks = document.querySelectorAll('.nav-link');
+        let _navTicking = false;
         window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link');
-
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
+            if (_navTicking) return;
+            _navTicking = true;
+            requestAnimationFrame(function() {
+                let current = '';
+                _navSections.forEach(function(section) {
+                    if (scrollY >= (section.offsetTop - 200)) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                _navLinks.forEach(function(link) {
+                    link.classList.remove('text-primary-600', 'dark:text-primary-400');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('text-primary-600', 'dark:text-primary-400');
+                    }
+                });
+                _navTicking = false;
             });
-
-            navLinks.forEach(link => {
-                link.classList.remove('text-primary-600', 'dark:text-primary-400');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('text-primary-600', 'dark:text-primary-400');
-                }
-            });
-        });
+        }, { passive: true });
 
         // Enhanced Portfolio functionality
         class EnhancedPortfolio {
@@ -755,28 +758,7 @@
                 document.querySelectorAll('.animate-slide-up, .animate-slide-up-delay-1, .animate-slide-up-delay-2, .animate-slide-up-delay-3, .animate-slide-up-delay-4')
                     .forEach(el => observer.observe(el));
 
-                // Parallax effect for floating particles
-                window.addEventListener('scroll', () => {
-                    const scrolled = window.pageYOffset;
-                    const parallax = document.querySelectorAll('.particle');
-                    const speed = 0.5;
 
-                    parallax.forEach((element, index) => {
-                        const yPos = -(scrolled * (speed + index * 0.1));
-                        element.style.transform = `translateY(${yPos}px)`;
-                    });
-                });
-
-                // Enhanced hover effects for project cards
-                document.querySelectorAll('.group').forEach(card => {
-                    card.addEventListener('mouseenter', function() {
-                        this.style.transform = 'translateY(-8px) scale(1.02)';
-                    });
-
-                    card.addEventListener('mouseleave', function() {
-                        this.style.transform = 'translateY(0) scale(1)';
-                    });
-                });
             }
 
             initScrollEffects() {
@@ -794,21 +776,7 @@
             }
 
             updateScrollEffects() {
-                const scrolled = window.pageYOffset;
-
-                // Header background opacity with glassmorphism
-                const header = document.querySelector('header');
-                if (header) {
-                    const opacity = Math.min(scrolled / 100, 0.95);
-                    header.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
-                    header.style.backdropFilter = scrolled > 10 ? 'blur(10px)' : 'none';
-                }
-
-                // Parallax effect for hero section
-                const hero = document.querySelector('#hero');
-                if (hero && scrolled < window.innerHeight) {
-                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-                }
+                // Parallax removed for performance
             }
 
             initTheme() {
@@ -890,12 +858,13 @@
                 const progressBar = document.getElementById('scroll-progress');
                 if (!progressBar) return;
 
+                let docHeight = document.body.scrollHeight - window.innerHeight;
+                window.addEventListener('resize', () => {
+                    docHeight = document.body.scrollHeight - window.innerHeight;
+                }, { passive: true });
                 window.addEventListener('scroll', () => {
-                    const scrollTop = window.pageYOffset;
-                    const docHeight = document.body.scrollHeight - window.innerHeight;
-                    const scrollPercent = (scrollTop / docHeight) * 100;
-                    progressBar.style.width = scrollPercent + '%';
-                });
+                    progressBar.style.width = ((window.pageYOffset / docHeight) * 100) + '%';
+                }, { passive: true });
             }
 
             setupPerformanceOptimizations() {
@@ -995,18 +964,6 @@
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('loading');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all elements with animation classes
-        document.querySelectorAll('.animate-fadeInUp, .animate-fadeInLeft, .animate-fadeInRight').forEach(el => {
-            observer.observe(el);
-        });
     </script>
 
     @stack('scripts')

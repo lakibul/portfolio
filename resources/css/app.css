@@ -225,6 +225,7 @@
 /* Improved Animation Classes */
 .animate-blob {
     animation: blob 8s infinite ease-in-out;
+    will-change: transform;
 }
 
 .animate-scan {
@@ -237,6 +238,7 @@
 
 .animate-spin-slow {
     animation: spin-slow 10s linear infinite;
+    will-change: transform;
 }
 
 .animate-scroll-indicator {
@@ -439,6 +441,7 @@
     position: absolute;
     border: 2px solid rgba(6, 182, 212, 0.2);
     animation: float 10s ease-in-out infinite;
+    will-change: transform;
 }
 
 .shape-1 {

@@ -285,8 +285,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <h3 class="text-xl font-bold text-white mb-1">Full-Stack Developer</h3>
-                                <p class="text-cyan-400 text-sm font-medium">Building Digital Solutions</p>
+                                <h3 class="text-xl font-bold text-white mb-1">Backend Software Engineer</h3>
+                                <p class="text-cyan-400 text-sm font-medium">Scalable APIs & Backend Systems</p>
                             </div>
                         </div>
 
@@ -421,7 +421,7 @@
             </div>
 
             <!-- Compact Skills Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                 @foreach ($data['skills'] as $category => $skillList)
                     <div class="relative">
                         <!-- Compact Card Content -->
@@ -530,76 +530,74 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-20 bg-white dark:bg-dark-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 animate-fadeInUp">Professional Experience</h2>
-                <div class="w-20 h-1 bg-primary-600 mx-auto animate-fadeInUp animate-delay-100"></div>
+    <section id="experience" class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900/50 to-slate-800"></div>
+        <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-block mb-8">
+                    <span class="px-6 py-3 bg-slate-800/60 rounded-full text-cyan-400 text-sm font-mono border border-cyan-500/30 backdrop-blur-sm">
+                        &lt; Experience /&gt;
+                    </span>
+                </div>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-center">
+                    <span class="bg-gradient-to-r from-slate-100 via-cyan-200 to-blue-200 bg-clip-text text-transparent">
+                        Professional Experience
+                    </span>
+                </h2>
+                <div class="w-20 h-0.5 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto rounded-full"></div>
             </div>
 
-            <div class="relative">
+            <div class="relative space-y-6">
                 <!-- Timeline line -->
-                <div class="absolute left-4 md:left-1/2 transform md:-translate-x-px h-full w-0.5 bg-primary-600"></div>
+                <div class="absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-cyan-400 to-blue-500 hidden md:block"></div>
 
                 @foreach ($data['experience'] as $index => $job)
-                    <div class="relative mb-12 md:mb-8">
-                        <div class="flex items-center mb-4">
-                            <div
-                                class="absolute left-2 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 bg-primary-600 rounded-full border-4 border-white dark:border-dark-900">
-                            </div>
-                            <div class="ml-12 md:ml-0 md:w-1/2 {{ $index % 2 == 0 ? 'md:pr-8' : 'md:ml-auto md:pl-8' }}">
-                                <div
-                                    class="bg-gray-50 dark:bg-dark-800 p-6 rounded-lg shadow-lg animate-fadeInUp animate-delay-{{ $index * 200 + 100 }}">
-                                    <div class="mb-4">
-                                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                            {{ $job['title'] }}</h3>
-                                        <p class="text-primary-600 font-medium">{{ $job['company'] }}</p>
-                                        <p class="text-gray-600 dark:text-gray-400 text-sm">{{ $job['location'] }} •
-                                            {{ $job['period'] }}</p>
-                                    </div>
-                                    <ul class="space-y-2">
-                                        @foreach ($job['responsibilities'] as $responsibility)
-                                            <li class="flex items-start">
-                                                <svg class="w-4 h-4 text-primary-600 mr-2 mt-0.5 flex-shrink-0"
-                                                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                                </svg>
-                                                <span
-                                                    class="text-gray-700 dark:text-gray-300 text-sm">{{ $responsibility }}</span>
-                                            </li>
-                                        @endforeach
-                                    </ul>
+                    <div class="relative md:pl-14">
+                        <!-- Timeline dot -->
+                        <div class="hidden md:flex absolute left-3.5 top-6 w-3.5 h-3.5 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full border-2 border-slate-900"></div>
+                        <div class="bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-slate-700/40 card-soft">
+                            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
+                                <div>
+                                    <h3 class="text-lg font-bold text-white">{{ $job['title'] }}</h3>
+                                    <p class="text-cyan-400 font-medium text-sm">{{ $job['company'] }}</p>
+                                </div>
+                                <div class="mt-1 sm:mt-0 sm:text-right">
+                                    <span class="inline-block px-3 py-1 bg-slate-700/60 rounded-full text-slate-300 text-xs font-mono">{{ $job['period'] }}</span>
+                                    <p class="text-slate-500 text-xs mt-1">{{ $job['location'] }}</p>
                                 </div>
                             </div>
+                            <ul class="space-y-1.5">
+                                @foreach ($job['responsibilities'] as $responsibility)
+                                    <li class="flex items-start">
+                                        <div class="w-1.5 h-1.5 bg-cyan-400 rounded-full mt-1.5 mr-2.5 flex-shrink-0"></div>
+                                        <span class="text-slate-300 text-sm leading-relaxed">{{ $responsibility }}</span>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 @endforeach
             </div>
 
             <!-- Education -->
-            <div class="mt-16">
-                <h3 class="text-xl font-bold mb-8 text-center text-gray-900 dark:text-white animate-fadeInUp">Education
-                </h3>
+            <div class="mt-12">
+                <h3 class="text-xl font-bold mb-6 text-center text-white">Education</h3>
                 @foreach ($data['education'] as $edu)
-                    <div
-                        class="bg-gray-50 dark:bg-dark-800 p-6 rounded-lg shadow-lg max-w-2xl mx-auto animate-fadeInUp animate-delay-100">
-                        <h4 class="text-1xl font-semibold text-gray-900 dark:text-white">{{ $edu['degree'] }}</h4>
-                        <p class="text-primary-600 font-weight-normal">{{ $edu['institution'] }}</p>
-                        <p class="text-gray-600 dark:text-gray-400">{{ $edu['location'] }} • {{ $edu['period'] }}</p>
+                    <div class="bg-slate-800/80 backdrop-blur-sm rounded-xl p-5 border border-slate-700/40 max-w-2xl mx-auto mb-4 card-soft">
+                        <h4 class="text-base font-semibold text-white">{{ $edu['degree'] }}</h4>
+                        <p class="text-cyan-400 text-sm font-medium mt-0.5">{{ $edu['institution'] }}</p>
+                        <p class="text-slate-400 text-xs mt-1">{{ $edu['location'] }} &bull; {{ $edu['period'] }}</p>
                     </div>
                 @endforeach
             </div>
 
             <!-- Certifications -->
-            <div class="mt-12">
-                <h3 class="text-xl font-bold mb-8 text-center text-gray-900 dark:text-white animate-fadeInUp">
-                    Certifications</h3>
+            <div class="mt-8">
+                <h3 class="text-xl font-bold mb-6 text-center text-white">Certifications</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto">
                     @foreach ($data['certifications'] as $cert)
-                        <div
-                            class="bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 p-4 rounded-lg text-center animate-fadeInUp animate-delay-{{ $loop->index * 100 + 100 }}">
-                            <span class="text-primary-800 dark:text-primary-200 font-medium">{{ $cert }}</span>
+                        <div class="bg-slate-800/80 backdrop-blur-sm border border-cyan-500/20 p-4 rounded-xl text-center card-soft">
+                            <span class="text-slate-300 text-sm font-medium">{{ $cert }}</span>
                         </div>
                     @endforeach
                 </div>
@@ -611,15 +609,7 @@
     <section id="projects" class="py-24 relative overflow-hidden">
         <!-- Softer Dynamic Background -->
         <div class="absolute inset-0 bg-gradient-to-br from-slate-800 via-slate-900/40 to-slate-800">
-            <!-- Subtle Code Grid Background -->
-            <div class="absolute inset-0 opacity-3">
-                <div class="grid grid-cols-12 gap-4 h-full">
-                    @for ($i = 0; $i < 40; $i++)
-                        <div class="bg-cyan-400/50 h-1 rounded animate-pulse"
-                            style="animation-delay: {{ $i * 0.2 }}s;"></div>
-                    @endfor
-                </div>
-            </div>
+
 
             <!-- Softer Floating Geometric Shapes -->
             <div class="absolute inset-0 opacity-20">
@@ -881,10 +871,9 @@
                                     </div>
                                     <div>
                                         <p class="text-xs text-slate-400 mb-1">Phone</p>
-                                        <a href="tel:{{ $data['phone'] }}"
-                                            class="text-sm font-medium text-green-400">
+                                        <p class="text-sm font-medium text-green-400">
                                             {{ $data['phone'] }}
-                                        </a>
+                                        </p>
                                     </div>
                                 </div>
 
@@ -1024,22 +1013,20 @@
             initMatrixRain();
             initNavigationDots();
             initSkillBars();
-            initParallaxEffects();
             initContactForm();
 
             // Typewriter Effect
             function initTypewriterEffect() {
                 const texts = [
                     "Backend Development",
-                    "PHP Enthusiast",
-                    "Laravel",
+                    "PHP & Laravel",
                     "CodeIgniter",
                     "Node.js",
                     "Vue.js",
-                    "React Basics",
-                    "API Architecture",
-                    "Third Party Integrations",
-                    "Database Design",
+                    "REST API Design",
+                    "Microservices",
+                    "Payment Integrations",
+                    "Database Optimization",
                     "System Design"
                 ];
 
@@ -1078,27 +1065,38 @@
                 setTimeout(typeWriter, 1000);
             }
 
-            // Matrix Rain Effect
+            // Matrix Rain Effect (performance-optimized)
             function initMatrixRain() {
                 const canvas = document.getElementById('matrix');
                 if (!canvas) return;
+
+                // Skip on reduced motion preference
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    canvas.style.display = 'none';
+                    return;
+                }
 
                 const ctx = canvas.getContext('2d');
                 canvas.width = window.innerWidth;
                 canvas.height = window.innerHeight;
 
-                const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
+                const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
             const matrixArray = matrix.split("");
 
-            const fontSize = 10;
-            const columns = canvas.width / fontSize;
-            const drops = [];
+            const fontSize = 12;
+            const columns = Math.floor(canvas.width / fontSize);
+            const drops = new Float32Array(columns).fill(1);
 
-            for (let x = 0; x < columns; x++) {
-                drops[x] = 1;
-            }
+            let animFrameId;
+            let lastTime = 0;
+            const FPS = 20; // limit to 20fps for performance
+            const interval = 1000 / FPS;
 
-            function draw() {
+            function draw(timestamp) {
+                animFrameId = requestAnimationFrame(draw);
+                if (timestamp - lastTime < interval) return;
+                lastTime = timestamp;
+
                 ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -1116,11 +1114,24 @@
                 }
             }
 
-            setInterval(draw, 35);
+            animFrameId = requestAnimationFrame(draw);
 
+            // Pause when tab is hidden
+            document.addEventListener('visibilitychange', () => {
+                if (document.hidden) {
+                    cancelAnimationFrame(animFrameId);
+                } else {
+                    animFrameId = requestAnimationFrame(draw);
+                }
+            });
+
+            let resizeTimeout;
             window.addEventListener('resize', () => {
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                }, 250);
             });
         }
 
@@ -1188,29 +1199,6 @@
 
             skillBars.forEach(bar => {
                 skillObserver.observe(bar);
-            });
-        }
-
-        // Parallax Effects
-        function initParallaxEffects() {
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const rate = scrolled * -0.5;
-
-                // Move floating elements
-                const floatingElements = document.querySelectorAll(
-                    '.tech-float, .floating-code, .geometric-shape');
-                floatingElements.forEach((element, index) => {
-                    const speed = 0.2 + (index * 0.1);
-                    element.style.transform = `translateY(${scrolled * speed}px)`;
-                });
-
-                // Parallax for gradient orbs
-                const orbs = document.querySelectorAll('.absolute.blur-3xl');
-                orbs.forEach((orb, index) => {
-                    const speed = 0.1 + (index * 0.05);
-                    orb.style.transform = `translateY(${scrolled * speed}px)`;
-                });
             });
         }
 
@@ -1352,72 +1340,6 @@
             }
         }
 
-        // Cursor trail effect
-        function initCursorTrail() {
-            const cursor = document.createElement('div');
-            cursor.className =
-                'fixed pointer-events-none z-50 w-4 h-4 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full opacity-0 transition-opacity duration-300';
-            document.body.appendChild(cursor);
-
-            let mouseX = 0,
-                mouseY = 0;
-            let cursorX = 0,
-                cursorY = 0;
-
-            document.addEventListener('mousemove', (e) => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                cursor.style.opacity = '0.8';
-            });
-
-            document.addEventListener('mouseleave', () => {
-                cursor.style.opacity = '0';
-            });
-
-            function updateCursor() {
-                cursorX += (mouseX - cursorX) * 0.1;
-                cursorY += (mouseY - cursorY) * 0.1;
-                cursor.style.transform = `translate(${cursorX - 8}px, ${cursorY - 8}px)`;
-                    requestAnimationFrame(updateCursor);
-                }
-                updateCursor();
-            }
-
-            // Initialize cursor trail on larger screens
-            if (window.innerWidth > 768) {
-                initCursorTrail();
-            }
-
-            // Performance optimization: Throttle scroll events
-            function throttle(func, wait) {
-                let timeout;
-                return function executedFunction(...args) {
-                    const later = () => {
-                        clearTimeout(timeout);
-                        func(...args);
-                    };
-                    clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
-                };
-            }
-
-            // Apply throttling to scroll events
-            window.addEventListener('scroll', throttle(() => {
-                // Any scroll-based animations can be added here
-            }, 16)); // ~60fps
-
-            // Add loading state management
-            window.addEventListener('load', () => {
-                document.body.classList.add('loaded');
-
-                // Trigger entrance animations
-                const animatedElements = document.querySelectorAll('[class*="animate-"]');
-                animatedElements.forEach((element, index) => {
-                    setTimeout(() => {
-                        element.classList.add('animate-in');
-                    }, index * 100);
-                });
-            });
         });
 
         // Global utility functions
