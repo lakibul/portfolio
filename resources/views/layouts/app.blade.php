@@ -45,7 +45,7 @@
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -56,6 +56,7 @@
                 extend: {
                     fontFamily: {
                         'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
                     },
                     colors: {
                         'primary': {
@@ -329,17 +330,17 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">About</a>
-                        <a href="#skills" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Skills</a>
-                        <a href="#experience" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Experience</a>
-                        <a href="#projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Projects</a>
-                        <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</a>
+                        <a href="#about" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a>
+                        <a href="#skills" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Skills</a>
+                        <a href="#experience" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a>
+                        <a href="#projects" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Projects</a>
+                        <a href="#contact" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a>
                     </div>
                 </div>
 
                 <!-- Theme Toggle -->
                 <div class="flex items-center space-x-4">
-                    <button id="theme-toggle" class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                    <button id="theme-toggle" class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                         </svg>
@@ -349,7 +350,7 @@
                     </button>
 
                     <!-- Mobile menu button -->
-                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                    <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -361,11 +362,11 @@
         <!-- Mobile Navigation -->
         <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-dark-900 border-t border-gray-200 dark:border-dark-700">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">About</a>
-                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Skills</a>
-                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Experience</a>
-                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Projects</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Skills</a>
+                <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Experience</a>
+                <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Projects</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Contact</a>
             </div>
         </div>
     </nav>
@@ -376,589 +377,92 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-50 dark:bg-dark-800 border-t border-gray-200 dark:border-dark-700">
-        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <p class="text-gray-600 dark:text-gray-400">
-                    &copy; {{ date('Y') }} Md Lakibul Hasan. All rights reserved.
-                </p>
-                <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
-                    Built with Laravel & Tailwind CSS
-                </p>
-            </div>
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <p class="text-slate-500 dark:text-slate-500 text-sm">
+                &copy; {{ date('Y') }} <span class="font-semibold text-slate-700 dark:text-slate-300">Md Lakibul Hasan</span>. All rights reserved.
+            </p>
+            <p class="font-mono text-xs text-slate-400 dark:text-slate-600">
+                Built with Laravel &amp; Tailwind CSS
+            </p>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script>
-        // Portfolio JavaScript - Enhanced Interactivity
-        class Portfolio {
-            constructor() {
-                this.init();
-            }
+        (function () {
+            // ── Theme ──────────────────────────────────────────────────────────
+            const darkIcon  = document.getElementById('theme-toggle-dark-icon');
+            const lightIcon = document.getElementById('theme-toggle-light-icon');
 
-            init() {
-                this.setupLoading();
-                this.setupNavigation();
-                this.setupTheme();
-                this.setupAnimations();
-                this.setupScrollEffects();
-                this.setupPerformanceOptimizations();
-            }
-
-            setupLoading() {
-                window.addEventListener('load', () => {
-                    const loadingScreen = document.getElementById('loading-screen');
-                    if (loadingScreen) {
-                        setTimeout(() => {
-                            loadingScreen.style.opacity = '0';
-                            setTimeout(() => {
-                                loadingScreen.style.display = 'none';
-                                this.triggerInitialAnimations();
-                            }, 300);
-                        }, 500);
-                    }
-                });
-            }
-
-            setupNavigation() {
-                // Mobile menu toggle
-                const mobileMenuButton = document.getElementById('mobile-menu-button');
-                const mobileMenu = document.getElementById('mobile-menu');
-
-                if (mobileMenuButton && mobileMenu) {
-                    mobileMenuButton.addEventListener('click', () => {
-                        mobileMenu.classList.toggle('hidden');
-                    });
-                }
-
-                // Smooth scrolling for anchor links
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const target = document.querySelector(anchor.getAttribute('href'));
-                        if (target) {
-                            const offsetTop = target.offsetTop - 80;
-                            window.scrollTo({
-                                top: offsetTop,
-                                behavior: 'smooth'
-                            });
-                            if (mobileMenu) mobileMenu.classList.add('hidden');
-                        }
-                    });
-                });
-
-                this.setupActiveNavigation();
-            }
-
-            setupActiveNavigation() {
-                const navLinks = document.querySelectorAll('.nav-link');
-                const sections = document.querySelectorAll('section[id]');
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const id = entry.target.getAttribute('id');
-                            navLinks.forEach(link => {
-                                link.classList.remove('text-primary-600', 'dark:text-primary-400');
-                                if (link.getAttribute('href') === `#${id}`) {
-                                    link.classList.add('text-primary-600', 'dark:text-primary-400');
-                                }
-                            });
-                        }
-                    });
-                }, {
-                    threshold: 0.3,
-                    rootMargin: '-80px 0px -50% 0px'
-                });
-
-                sections.forEach(section => observer.observe(section));
-            }
-
-            setupTheme() {
-                const themeToggle = document.getElementById('theme-toggle');
-                const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-                const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
-                const theme = localStorage.getItem('theme') ||
-                            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-                this.setTheme(theme);
-
-                if (themeToggle) {
-                    themeToggle.addEventListener('click', () => {
-                        const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-                        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                        this.setTheme(newTheme);
-                    });
-                }
-            }
-
-            setTheme(theme) {
-                const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-                const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
+            function applyTheme(theme) {
                 if (theme === 'dark') {
                     document.documentElement.classList.add('dark');
-                    localStorage.setItem('theme', 'dark');
-                    if (themeToggleDarkIcon) themeToggleDarkIcon.classList.add('hidden');
-                    if (themeToggleLightIcon) themeToggleLightIcon.classList.remove('hidden');
+                    darkIcon?.classList.add('hidden');
+                    lightIcon?.classList.remove('hidden');
                 } else {
                     document.documentElement.classList.remove('dark');
-                    localStorage.setItem('theme', 'light');
-                    if (themeToggleLightIcon) themeToggleLightIcon.classList.add('hidden');
-                    if (themeToggleDarkIcon) themeToggleDarkIcon.classList.remove('hidden');
+                    lightIcon?.classList.add('hidden');
+                    darkIcon?.classList.remove('hidden');
                 }
+                localStorage.setItem('theme', theme);
             }
 
-            setupAnimations() {
-                const observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                };
+            const saved = localStorage.getItem('theme') ||
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            applyTheme(saved);
 
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('loading');
-                        }
-                    });
-                }, observerOptions);
+            document.getElementById('theme-toggle')?.addEventListener('click', () => {
+                applyTheme(document.documentElement.classList.contains('dark') ? 'light' : 'dark');
+            });
 
-                document.querySelectorAll('.animate-fadeInUp, .animate-fadeInLeft, .animate-fadeInRight').forEach(el => {
-                    observer.observe(el);
-                });
-            }
+            // ── Loading screen ─────────────────────────────────────────────────
+            window.addEventListener('load', () => {
+                const screen = document.getElementById('loading-screen');
+                if (!screen) return;
+                screen.style.transition = 'opacity 0.3s ease';
+                screen.style.opacity = '0';
+                setTimeout(() => screen.remove(), 350);
+            });
 
-            setupScrollEffects() {
-                // Progress indicator
-                const progressBar = document.createElement('div');
-                progressBar.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 0%;
-                    height: 3px;
-                    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
-                    z-index: 9999;
-                    transition: width 0.3s ease;
-                `;
-                document.body.appendChild(progressBar);
+            // ── Mobile menu ────────────────────────────────────────────────────
+            document.getElementById('mobile-menu-button')?.addEventListener('click', () => {
+                document.getElementById('mobile-menu')?.classList.toggle('hidden');
+            });
 
-                window.addEventListener('scroll', () => {
-                    const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-                    progressBar.style.width = scrollPercent + '%';
-                });
-            }
-
-            setupPerformanceOptimizations() {
-                if ('IntersectionObserver' in window) {
-                    const imageObserver = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                const img = entry.target;
-                                if (img.dataset.src) {
-                                    img.src = img.dataset.src;
-                                    img.classList.remove('lazy');
-                                    imageObserver.unobserve(img);
-                                }
-                            }
-                        });
-                    });
-
-                    document.querySelectorAll('img[data-src]').forEach(img => {
-                        imageObserver.observe(img);
-                    });
-                }
-            }
-
-            triggerInitialAnimations() {
-                const visibleElements = document.querySelectorAll('.animate-fadeInUp, .animate-fadeInLeft, .animate-fadeInRight');
-                visibleElements.forEach((el, index) => {
-                    if (this.isElementInViewport(el)) {
-                        setTimeout(() => {
-                            el.classList.add('loading');
-                        }, index * 100);
-                    }
-                });
-            }
-
-            isElementInViewport(el) {
-                const rect = el.getBoundingClientRect();
-                return (
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                );
-            }
-        }
-
-        // Initialize portfolio when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            new Portfolio();
-        });
-    </script>
-    <script>
-        // Loading screen
-        window.addEventListener('load', function() {
-            const loadingScreen = document.getElementById('loading-screen');
-            loadingScreen.style.opacity = '0';
-            setTimeout(() => {
-                loadingScreen.style.display = 'none';
-            }, 300);
-        });
-
-        // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
-        // Check for saved theme preference or default to 'light'
-        const theme = localStorage.getItem('theme') || 'light';
-
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark');
-            themeToggleLightIcon.classList.remove('hidden');
-        } else {
-            themeToggleDarkIcon.classList.remove('hidden');
-        }
-
-        themeToggle.addEventListener('click', function() {
-            document.documentElement.classList.toggle('dark');
-
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-                themeToggleDarkIcon.classList.add('hidden');
-                themeToggleLightIcon.classList.remove('hidden');
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeToggleLightIcon.classList.add('hidden');
-                themeToggleDarkIcon.classList.remove('hidden');
-            }
-        });
-
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', function() {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            // ── Smooth scroll + close mobile menu ─────────────────────────────
+            document.addEventListener('click', e => {
+                const anchor = e.target.closest('a[href^="#"]');
+                if (!anchor) return;
+                const target = document.querySelector(anchor.getAttribute('href'));
+                if (!target) return;
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    // Close mobile menu if open
-                    mobileMenu.classList.add('hidden');
-                }
+                window.scrollTo({ top: target.offsetTop - 64, behavior: 'smooth' });
+                document.getElementById('mobile-menu')?.classList.add('hidden');
             });
-        });
 
-        // Active navigation highlighting
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section[id]');
+            // ── Active nav highlighting ────────────────────────────────────────
             const navLinks = document.querySelectorAll('.nav-link');
-
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('text-primary-600', 'dark:text-primary-400');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('text-primary-600', 'dark:text-primary-400');
-                }
-            });
-        });
-
-        // Enhanced Portfolio functionality
-        class EnhancedPortfolio {
-            constructor() {
-                this.initLoading();
-                this.initEnhancedAnimations();
-                this.initScrollEffects();
-                this.initTheme();
-                this.initNavigation();
-                this.initProgressBar();
-                this.setupPerformanceOptimizations();
-            }
-
-            initLoading() {
-                window.addEventListener('load', () => {
-                    const loadingScreen = document.getElementById('loading-screen');
-                    if (loadingScreen) {
-                        loadingScreen.style.opacity = '0';
-                        setTimeout(() => {
-                            loadingScreen.style.display = 'none';
-                            this.triggerInitialAnimations();
-                        }, 300);
-                    }
-                });
-            }
-
-            initEnhancedAnimations() {
-                // Intersection Observer for slide-up animations
-                const observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                };
-
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.animation = entry.target.style.animation ||
-                                'slideUp 1s ease-out forwards';
-                        }
-                    });
-                }, observerOptions);
-
-                // Observe elements with slide-up animations
-                document.querySelectorAll('.animate-slide-up, .animate-slide-up-delay-1, .animate-slide-up-delay-2, .animate-slide-up-delay-3, .animate-slide-up-delay-4')
-                    .forEach(el => observer.observe(el));
-
-                // Parallax effect for floating particles
-                window.addEventListener('scroll', () => {
-                    const scrolled = window.pageYOffset;
-                    const parallax = document.querySelectorAll('.particle');
-                    const speed = 0.5;
-
-                    parallax.forEach((element, index) => {
-                        const yPos = -(scrolled * (speed + index * 0.1));
-                        element.style.transform = `translateY(${yPos}px)`;
+            const sectionObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const id = entry.target.id;
+                    navLinks.forEach(link => {
+                        link.classList.toggle('text-indigo-600', link.getAttribute('href') === `#${id}`);
+                        link.classList.toggle('dark:text-indigo-400', link.getAttribute('href') === `#${id}`);
                     });
                 });
+            }, { threshold: 0.35, rootMargin: '-64px 0px -40% 0px' });
+            document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
 
-                // Enhanced hover effects for project cards
-                document.querySelectorAll('.group').forEach(card => {
-                    card.addEventListener('mouseenter', function() {
-                        this.style.transform = 'translateY(-8px) scale(1.02)';
-                    });
-
-                    card.addEventListener('mouseleave', function() {
-                        this.style.transform = 'translateY(0) scale(1)';
-                    });
-                });
-            }
-
-            initScrollEffects() {
-                let ticking = false;
-
-                window.addEventListener('scroll', () => {
-                    if (!ticking) {
-                        requestAnimationFrame(() => {
-                            this.updateScrollEffects();
-                            ticking = false;
-                        });
-                        ticking = true;
-                    }
-                });
-            }
-
-            updateScrollEffects() {
-                const scrolled = window.pageYOffset;
-
-                // Header background opacity with glassmorphism
-                const header = document.querySelector('header');
-                if (header) {
-                    const opacity = Math.min(scrolled / 100, 0.95);
-                    header.style.backgroundColor = `rgba(255, 255, 255, ${opacity})`;
-                    header.style.backdropFilter = scrolled > 10 ? 'blur(10px)' : 'none';
-                }
-
-                // Parallax effect for hero section
-                const hero = document.querySelector('#hero');
-                if (hero && scrolled < window.innerHeight) {
-                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-                }
-            }
-
-            initTheme() {
-                const themeToggle = document.getElementById('theme-toggle');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                const storedTheme = localStorage.getItem('theme');
-
-                const theme = storedTheme || (prefersDark ? 'dark' : 'light');
-                this.setTheme(theme);
-
-                if (themeToggle) {
-                    themeToggle.addEventListener('click', () => {
-                        const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-                        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                        this.setTheme(newTheme);
-                        localStorage.setItem('theme', newTheme);
-                    });
-                }
-            }
-
-            setTheme(theme) {
-                if (theme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                }
-            }
-
-            initNavigation() {
-                const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-                const mobileMenu = document.getElementById('mobile-menu');
-
-                if (mobileMenuToggle && mobileMenu) {
-                    mobileMenuToggle.addEventListener('click', () => {
-                        mobileMenu.classList.toggle('hidden');
-                    });
-                }
-
-                // Smooth scroll for anchor links with offset
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const target = document.querySelector(this.getAttribute('href'));
-                        if (target) {
-                            const offsetTop = target.offsetTop - 100;
-                            window.scrollTo({
-                                top: offsetTop,
-                                behavior: 'smooth'
-                            });
-                        }
-                    });
-                });
-            }
-
-            initProgressBar() {
-                const progressBar = document.getElementById('scroll-progress');
-                if (!progressBar) return;
-
-                window.addEventListener('scroll', () => {
-                    const scrollTop = window.pageYOffset;
-                    const docHeight = document.body.scrollHeight - window.innerHeight;
-                    const scrollPercent = (scrollTop / docHeight) * 100;
-                    progressBar.style.width = scrollPercent + '%';
-                });
-            }
-
-            setupPerformanceOptimizations() {
-                // Intersection Observer for lazy loading
-                if ('IntersectionObserver' in window) {
-                    const imageObserver = new IntersectionObserver((entries) => {
-                        entries.forEach(entry => {
-                            if (entry.isIntersecting) {
-                                const img = entry.target;
-                                if (img.dataset.src) {
-                                    img.src = img.dataset.src;
-                                    img.classList.remove('lazy');
-                                    imageObserver.unobserve(img);
-                                }
-                            }
-                        });
-                    });
-
-                    document.querySelectorAll('img[data-src]').forEach(img => {
-                        imageObserver.observe(img);
-                    });
-                }
-
-                // Preload critical resources
-                const preloadLinks = [
-                    'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'
-                ];
-
-                preloadLinks.forEach(href => {
-                    const link = document.createElement('link');
-                    link.rel = 'preload';
-                    link.as = 'style';
-                    link.href = href;
-                    document.head.appendChild(link);
-                });
-            }
-
-            triggerInitialAnimations() {
-                const visibleElements = document.querySelectorAll('.animate-fadeInUp, .animate-fadeInLeft, .animate-fadeInRight');
-                visibleElements.forEach((el, index) => {
-                    if (this.isElementInViewport(el)) {
-                        setTimeout(() => {
-                            el.classList.add('loading');
-                        }, index * 100);
-                    }
-                });
-
-                // Trigger hero animations
-                setTimeout(() => {
-                    document.querySelectorAll('.animate-slide-up, .animate-slide-up-delay-1, .animate-slide-up-delay-2, .animate-slide-up-delay-3, .animate-slide-up-delay-4')
-                        .forEach(el => {
-                            el.style.opacity = '1';
-                        });
-                }, 500);
-            }
-
-            isElementInViewport(el) {
-                const rect = el.getBoundingClientRect();
-                return (
-                    rect.top >= 0 &&
-                    rect.left >= 0 &&
-                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-                );
-            }
-        }
-
-        // Initialize the enhanced portfolio
-        new EnhancedPortfolio();
-
-        // Add typing effect for specific elements
-        function initTypingEffect() {
-            const elements = document.querySelectorAll('.typing-effect');
-            elements.forEach(element => {
-                const text = element.textContent;
-                element.textContent = '';
-                element.style.opacity = '1';
-
-                let i = 0;
-                const timer = setInterval(() => {
-                    if (i < text.length) {
-                        element.textContent += text.charAt(i);
-                        i++;
-                    } else {
-                        clearInterval(timer);
-                    }
-                }, 100);
-            });
-        }
-
-        // Initialize after a delay
-        setTimeout(initTypingEffect, 1000);
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('loading');
-                }
-            });
-        }, observerOptions);
-
-        // Observe all elements with animation classes
-        document.querySelectorAll('.animate-fadeInUp, .animate-fadeInLeft, .animate-fadeInRight').forEach(el => {
-            observer.observe(el);
-        });
+            // ── Scroll progress bar ────────────────────────────────────────────
+            const bar = document.createElement('div');
+            bar.style.cssText = 'position:fixed;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,#6366f1,#06b6d4);z-index:9999;transition:width .2s ease;pointer-events:none';
+            document.body.prepend(bar);
+            window.addEventListener('scroll', () => {
+                bar.style.width = (window.scrollY / (document.body.scrollHeight - innerHeight) * 100) + '%';
+            }, { passive: true });
+        })();
     </script>
 
     @stack('scripts')
