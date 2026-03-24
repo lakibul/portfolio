@@ -121,7 +121,7 @@
                     {{-- Circle border + image --}}
                     <div class="hero-circle-wrap relative p-[3px] rounded-full bg-gradient-to-br from-indigo-500 via-violet-500 to-purple-500 shadow-xl shadow-indigo-500/20">
                         <div class="rounded-full overflow-hidden bg-slate-100 dark:bg-slate-900">
-                            <img src="{{ asset('assets/images/profile.jpg') }}"
+                            <img src="{{ asset('assets/images/profile.png') }}"
                                  alt="{{ $data['name'] }}"
                                  class="hero-photo w-64 h-64 md:w-72 md:h-72 xl:w-80 xl:h-80 object-cover object-top block rounded-full"
                                  onerror="this.src='https://ui-avatars.com/api/?name={{ urlencode($data['name']) }}&size=320&background=6366f1&color=ffffff&bold=true&format=svg'">
