@@ -303,6 +303,7 @@
                     @endforeach
                 </div>
             </div>
+            @endforeach
         </div>
     </section>
 
@@ -439,8 +440,6 @@
                         </div>
                         <h3 class="text-base font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors leading-snug pt-1">{{ $project['name'] }}</h3>
                     </div>
-                @endforeach
-            </div>
 
                     <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex-1 mb-4">{{ $project['description'] }}</p>
 
@@ -479,6 +478,7 @@
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
     </section>
 
@@ -604,7 +604,6 @@ const revealObserver = new IntersectionObserver(entries => {
 
 document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-// Trigger hero elements immediately on load
 window.addEventListener('load', () => {
     document.querySelectorAll('#hero .reveal').forEach((el, i) => {
         setTimeout(() => el.classList.add('visible'), i * 100);
@@ -617,7 +616,6 @@ window.addEventListener('load', () => {
     let wi = 0, ci = 0, deleting = false;
     const el = document.getElementById('typing-text');
     if (!el) return;
-
     function tick() {
         const word = words[wi];
         el.textContent = deleting ? word.slice(0, ci--) : word.slice(0, ci++);
@@ -642,7 +640,7 @@ document.getElementById('contact-form')?.addEventListener('submit', async functi
     loadEl.classList.add('inline-flex');
 
     try {
-        const res  = await fetch('{{ route("portfolio.contact") }}', {
+        const res = await fetch('{{ route("portfolio.contact") }}', {
             method: 'POST',
             body: new FormData(this),
             headers: {
@@ -650,289 +648,13 @@ document.getElementById('contact-form')?.addEventListener('submit', async functi
                 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]')?.content
                               ?? this.querySelector('[name="_token"]').value
             }
-
-            // Matrix Rain Effect (performance-optimized)
-            function initMatrixRain() {
-                const canvas = document.getElementById('matrix');
-                if (!canvas) return;
-
-                // Skip on reduced motion preference
-                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                    canvas.style.display = 'none';
-                    return;
-                }
-
-                const ctx = canvas.getContext('2d');
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-
-                const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
-            const matrixArray = matrix.split("");
-
-            const fontSize = 12;
-            const columns = Math.floor(canvas.width / fontSize);
-            const drops = new Float32Array(columns).fill(1);
-
-            let animFrameId;
-            let lastTime = 0;
-            const FPS = 20; // limit to 20fps for performance
-            const interval = 1000 / FPS;
-
-            function draw(timestamp) {
-                animFrameId = requestAnimationFrame(draw);
-                if (timestamp - lastTime < interval) return;
-                lastTime = timestamp;
-
-                ctx.fillStyle = 'rgba(0, 0, 0, 0.04)';
-                ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                ctx.fillStyle = '#06b6d4';
-                ctx.font = fontSize + 'px monospace';
-
-                for (let i = 0; i < drops.length; i++) {
-                    const text = matrixArray[Math.floor(Math.random() * matrixArray.length)];
-                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                        drops[i] = 0;
-                    }
-                    drops[i]++;
-                }
-            }
-
-            animFrameId = requestAnimationFrame(draw);
-
-            // Pause when tab is hidden
-            document.addEventListener('visibilitychange', () => {
-                if (document.hidden) {
-                    cancelAnimationFrame(animFrameId);
-                } else {
-                    animFrameId = requestAnimationFrame(draw);
-                }
-            });
-
-            let resizeTimeout;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => {
-                    canvas.width = window.innerWidth;
-                    canvas.height = window.innerHeight;
-                }, 250);
-            });
-        }
-
-        // Navigation Dots
-        function initNavigationDots() {
-            const sections = document.querySelectorAll('section[id]');
-            const navDots = document.querySelectorAll('.nav-dot');
-
-            // Intersection Observer for active section detection
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const sectionId = entry.target.id;
-                        navDots.forEach(dot => {
-                            dot.classList.remove('active');
-                            if (dot.dataset.section === sectionId) {
-                                dot.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, {
-                threshold: 0.3
-            });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
-
-            // Smooth scroll on click
-            navDots.forEach(dot => {
-                dot.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const targetSection = document.getElementById(dot.dataset.section);
-                    if (targetSection) {
-                        targetSection.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        }
-
-        // Animated Skill Bars
-        function initSkillBars() {
-            const skillBars = document.querySelectorAll('.skill-bar');
-
-            const skillObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const skillBar = entry.target;
-                        const targetWidth = skillBar.dataset.width || skillBar.style.width;
-                        skillBar.style.setProperty('--target-width', targetWidth);
-                        skillBar.parentElement.classList.add('animate');
-
-                        // Animate width
-                        setTimeout(() => {
-                            skillBar.style.width = targetWidth;
-                        }, 100);
-                    }
-                });
-            }, {
-                threshold: 0.5
-            });
-
-            skillBars.forEach(bar => {
-                skillObserver.observe(bar);
-            });
-        }
-
-        // Enhanced Contact Form
-        function initContactForm() {
-            const form = document.getElementById('contact-form');
-            if (!form) return;
-
-            // Add real-time validation
-            const inputs = form.querySelectorAll('input, textarea');
-            inputs.forEach(input => {
-                input.addEventListener('blur', validateField);
-                input.addEventListener('input', clearErrors);
-            });
-
-            function validateField(e) {
-                const field = e.target;
-                const value = field.value.trim();
-
-                // Remove existing error styling
-                field.classList.remove('border-red-500');
-
-                if (!value) {
-                    field.classList.add('border-red-500');
-                    return false;
-                }
-
-                if (field.type === 'email' && !isValidEmail(value)) {
-                    field.classList.add('border-red-500');
-                    return false;
-                }
-
-                field.classList.add('border-green-500');
-                return true;
-            }
-
-            function clearErrors(e) {
-                const field = e.target;
-                field.classList.remove('border-red-500', 'border-green-500');
-            }
-
-            function isValidEmail(email) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return emailRegex.test(email);
-            }
-
-            // Form submission with enhanced feedback
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-
-                const submitBtn = form.querySelector('button[type="submit"]');
-                const submitText = document.getElementById('submit-text');
-                const submitLoading = document.getElementById('submit-loading');
-                const messageDiv = document.getElementById('form-message');
-
-                // Validate all fields
-                let isValid = true;
-                inputs.forEach(input => {
-                    if (!validateField({
-                            target: input
-                        })) {
-                        isValid = false;
-                    }
-                });
-
-                if (!isValid) {
-                    showMessage('Please fill in all required fields correctly.', 'error');
-                    return;
-                }
-
-                // Show loading state with animation
-                submitBtn.disabled = true;
-                submitBtn.classList.add('animate-pulse');
-                submitText.classList.add('hidden');
-                submitLoading.classList.remove('hidden');
-
-                try {
-                    const formData = new FormData(form);
-                    const response = await fetch('{{ route('portfolio.contact') }}', {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'X-Requested-With': 'XMLHttpRequest',
-                            'X-CSRF-TOKEN': document.querySelector(
-                                    'meta[name="csrf-token"]')?.getAttribute('content') ||
-                                form.querySelector('[name="_token"]').value
-                        }
-                    });
-
-                    const data = await response.json();
-
-                    if (data.success) {
-                        showMessage(data.message ||
-                            'Message sent successfully! I\'ll get back to you soon.', 'success');
-                        form.reset();
-                        // Clear field styling
-                        inputs.forEach(input => {
-                            input.classList.remove('border-green-500', 'border-red-500');
-                        });
-                    } else {
-                        throw new Error(data.message || 'Something went wrong');
-                    }
-                } catch (error) {
-                    showMessage('Failed to send message. Please try again or contact me directly.',
-                        'error');
-                } finally {
-                    // Reset button state
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('animate-pulse');
-                    submitText.classList.remove('hidden');
-                    submitLoading.classList.add('hidden');
-                }
-            });
-
-            function showMessage(message, type) {
-                const messageDiv = document.getElementById('form-message');
-                const bgClass = type === 'success' ? 'bg-green-900 border-green-600 text-green-300' :
-                    'bg-red-900 border-red-600 text-red-300';
-
-                messageDiv.innerHTML = `
-                        <div class="${bgClass} border px-4 py-3 rounded-lg animate-fadeInUp">
-                            <div class="flex items-center">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    ${type === 'success'
-                                        ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>'
-                                        : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>'
-                                    }
-                                </svg>
-                                ${message}
-                            </div>
-                        </div>
-                    `;
-                messageDiv.classList.remove('hidden');
-
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    messageDiv.classList.add('hidden');
-                }, 5000);
-            }
-        }
-
         });
         const data = await res.json();
         if (!data.success) throw new Error(data.message);
-        msgDiv.innerHTML = `<div class="p-4 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 rounded-xl text-sm">${data.message}</div>`;
+        msgDiv.innerHTML = '<div class="p-4 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 rounded-xl text-sm">Message sent successfully!</div>';
         this.reset();
     } catch {
-        msgDiv.innerHTML = `<div class="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 rounded-xl text-sm">Failed to send. Email me directly: <a href="mailto:{{ $data['email'] }}" class="underline font-medium">{{ $data['email'] }}</a></div>`;
+        msgDiv.innerHTML = '<div class="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 rounded-xl text-sm">Failed to send. Please email directly.</div>';
     } finally {
         btn.disabled = false;
         txtEl.classList.remove('hidden');
