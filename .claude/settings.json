@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:media2.dev.to)"
+      "WebFetch(domain:media2.dev.to)",
+      "Bash(php -r:*)",
+      "Bash(php -l app/Http/Controllers/PortfolioController.php)",
+      "Bash(for f:*)",
+      "Bash(do)",
+      "Bash(done)"
     ]
   }
 }
