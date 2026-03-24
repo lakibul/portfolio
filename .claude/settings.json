@@ -6,7 +6,8 @@
       "Bash(php -l app/Http/Controllers/PortfolioController.php)",
       "Bash(for f:*)",
       "Bash(do)",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(node -e \":*)"
     ]
   }
 }
