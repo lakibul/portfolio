@@ -370,7 +370,7 @@
                     <div>
                         <h4 class="font-bold text-slate-900 dark:text-white">{{ $edu['degree'] }}</h4>
                         <p class="text-indigo-600 dark:text-indigo-400 font-semibold text-sm mt-0.5">{{ $edu['institution'] }}</p>
-                        <p class="text-slate-400 dark:text-slate-500 text-xs mt-0.5">{{ $edu['location'] }}</p>
+                        <p class="text-slate-400 dark:text-slate-500 text-xs mt-0.5">{{ $edu['location'] ?? 'Bangladesh' }}</p>
                     </div>
                     <div class="flex flex-col items-start sm:items-end gap-1.5 flex-shrink-0">
                         <span class="font-mono text-xs bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 px-3 py-1 rounded-full">{{ $edu['period'] }}</span>

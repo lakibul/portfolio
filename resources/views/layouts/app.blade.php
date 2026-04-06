@@ -7,6 +7,10 @@
     <meta name="keywords" content="Backend Developer, PHP, Laravel, Node.js, API Development, Database Design, Dhaka, Bangladesh">
     <meta name="author" content="Md Lakibul Hasan">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script>
+        document.documentElement.classList.remove('dark');
+        try { localStorage.setItem('theme', 'light'); } catch (e) {}
+    </script>
 
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#3b82f6">
@@ -313,14 +317,14 @@
 
     @stack('styles')
 </head>
-<body class="font-sans antialiased bg-white dark:bg-dark-900 text-gray-900 dark:text-white">
+<body class="font-sans antialiased bg-white text-gray-900">
     <!-- Loading Screen -->
-    <div id="loading-screen" class="fixed inset-0 bg-white dark:bg-dark-900 z-50 flex items-center justify-center">
+    <div id="loading-screen" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
         <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-40 bg-white/80 dark:bg-dark-900/80 backdrop-blur-md border-b border-gray-200 dark:border-dark-700">
+    <nav class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0">
@@ -340,7 +344,7 @@
 
                 <!-- Theme Toggle -->
                 <div class="flex items-center space-x-4">
-                    <button id="theme-toggle" class="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                    <button id="theme-toggle" class="hidden p-2 rounded-md text-gray-700 hover:text-indigo-600 transition-colors" aria-hidden="true" tabindex="-1">
                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                         </svg>
@@ -394,30 +398,9 @@
     <!-- Scripts -->
     <script>
         (function () {
-            // ── Theme ──────────────────────────────────────────────────────────
-            const darkIcon  = document.getElementById('theme-toggle-dark-icon');
-            const lightIcon = document.getElementById('theme-toggle-light-icon');
-
-            function applyTheme(theme) {
-                if (theme === 'dark') {
-                    document.documentElement.classList.add('dark');
-                    darkIcon?.classList.add('hidden');
-                    lightIcon?.classList.remove('hidden');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    lightIcon?.classList.add('hidden');
-                    darkIcon?.classList.remove('hidden');
-                }
-                localStorage.setItem('theme', theme);
-            }
-
-            const saved = localStorage.getItem('theme') ||
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            applyTheme(saved);
-
-            document.getElementById('theme-toggle')?.addEventListener('click', () => {
-                applyTheme(document.documentElement.classList.contains('dark') ? 'light' : 'dark');
-            });
+            // Force white/light theme on every page load.
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
 
             // ── Loading screen ─────────────────────────────────────────────────
             window.addEventListener('load', () => {

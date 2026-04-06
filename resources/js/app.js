@@ -90,40 +90,17 @@ class Portfolio {
     }
 
     setupTheme() {
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-
-        // Check for saved theme preference or default to 'light'
-        const theme = localStorage.getItem('theme') ||
-                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-        this.setTheme(theme);
-
-        if (themeToggle) {
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                this.setTheme(newTheme);
-            });
-        }
+        this.setTheme('light');
     }
 
     setTheme(theme) {
         const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 
-        if (theme === 'dark') {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-            if (themeToggleDarkIcon) themeToggleDarkIcon.classList.add('hidden');
-            if (themeToggleLightIcon) themeToggleLightIcon.classList.remove('hidden');
-        } else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            if (themeToggleLightIcon) themeToggleLightIcon.classList.add('hidden');
-            if (themeToggleDarkIcon) themeToggleDarkIcon.classList.remove('hidden');
-        }
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        if (themeToggleLightIcon) themeToggleLightIcon.classList.add('hidden');
+        if (themeToggleDarkIcon) themeToggleDarkIcon.classList.remove('hidden');
     }
 
     setupAnimations() {
