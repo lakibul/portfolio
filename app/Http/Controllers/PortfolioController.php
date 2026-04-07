@@ -59,21 +59,46 @@ class PortfolioController extends Controller
             'projects' => [
                 [
                     'name'         => 'Wyzr',
-                    'description'  => 'Community platform for older adults with chat, events, carpools, timeline posts, and subscriptions.',
-                    'technologies' => ['Laravel', 'Flutter', 'Stripe', 'Google Pay', 'Apple Pay'],
+                    'description'  => 'Developed a community-driven social platform for older adults, enabling real-world connections through chat, events, carpooling, and timeline posts, Calling feature (Agora), with subscription-based features and interest-based networking.',
+                    'technologies' => ['Laravel', 'Flutter', 'Stripe', 'Google Pay', 'Apple Pay', 'Agora API'],
                     'link'         => 'https://play.google.com/store/search?q=wyzr&c=apps&hl=en',
                 ],
                 [
                     'name'         => 'Walltouch (Multivendor E-Commerce)',
-                    'description'  => 'Multivendor commerce platform with Super Admin, Admin, and Seller operations.',
+                    'description'  => 'Developed a multi-vendor eCommerce platform with Super Admin, Admin, and Seller role-based operations. Implemented product management, order processing, payment integration and POS.',
                     'technologies' => ['Laravel', 'MySQL', 'Bootstrap'],
                     'link'         => 'https://www.walltouchbd.com',
+                ],
+                [
+                    'name'         => 'Ultimate POS (Walltouch)',
+                    'description'  => 'Developed and maintained backend systems for a cloud-based POS (Point of Sale) platform, enabling businesses to manage sales, inventory, invoicing, and multi-location operations with real-time data processing.',
+                    'technologies' => ['Laravel', 'MySQL', 'Bootstrap'],
+                    'link'         => 'https://pos2.walltouchbd.com',
+                ],
+                [
+                    'name'         => 'PrimeBazar (B2C E-Commerce)',
+                    'description'  => 'Engineered backend systems for a high-traffic eCommerce platform, implementing order slot management, seamless Shopify integration, social authentication, large dataset processing, Stripe subscriptions, and high-performance APIs.',
+                    'technologies' => ['Laravel', 'Flutter', 'Stripe', 'Google Pay', 'Apple Pay', 'Shopify API'],
+                    'link'         => 'https://primebazaartx.com',
+                ],
+                [
+                    'name'         => 'ReplyFlow — AI-Powered Customer Support SaaS',
+                    'description'  => 'Built a production-ready AI SaaS (ReplyFlow) using Laravel 12, OpenAI GPT-4o-mini & Redis queues — auto-generates customer support replies, summaries, and ticket classifications with tiered subscription limits',
+                    'technologies' => ['Laravel 12', 'OpenAI', 'MySQL', 'Redis'],
+                    'features'     => ['AI reply generation', 'Message summarization', 'Auto ticket classification', 'Redis async queue processing', 'Subscription-based usage limits', 'Web dashboard portal', 'Fake AI mode for local dev'],
+                    'github'       => 'https://github.com/lakibul/replyflow',
                 ],
                 [
                     'name'         => 'Simple Admission',
                     'description'  => 'Education agency platform for study-abroad admissions and process management.',
                     'technologies' => ['Laravel', 'Bootstrap', 'MySQL'],
                     'link'         => 'https://simpleadmission.net',
+                ],
+                [
+                    'name'         => 'Sportsplex Booking Platform (POHS Sportsplex)',
+                    'description'  => 'Developed backend features for a sports facility booking platform, enabling slot-based session reservations, real-time availability management, and seamless booking workflows for multiple sports activities.',
+                    'technologies' => ['Laravel', 'MySQL', 'Bootstrap'],
+                    'link'         => 'https://pohssportsplex.com',
                 ],
                 [
                     'name'         => 'BFSA-JICA',
@@ -85,13 +110,19 @@ class PortfolioController extends Controller
                     'name'         => 'Laravel Chat with Vue.js',
                     'description'  => 'Real-time private messaging app with typing indicators and unread tracking.',
                     'technologies' => ['Laravel', 'Vue.js', 'Pusher'],
-                    'link'         => 'https://github.com/lakibul/laravel-chat.git',
+                    'github'         => 'https://github.com/lakibul/laravel-chat.git',
                 ],
                 [
                     'name'         => 'Health Point',
                     'description'  => 'Hospital management system for patient and operational workflows.',
                     'technologies' => ['Laravel', 'MySQL'],
-                    'link'         => 'https://github.com/lakibul/health-point.git',
+                    'github'         => 'https://github.com/lakibul/health-point.git',
+                ],
+                [
+                    'name'         => 'Hipe',
+                    'description'  => 'Online-based Hotel and Booking Management (ERP) software using PHP (CodeIgniter), Node.js and Flutter with google translation microservice.',
+                    'technologies' => ['CodeIgniter v3', 'Node.js', 'MySQL', 'Whatsapp API', 'Google Translation API', 'Flutter'],
+                    'link'         => '#',
                 ],
             ],
             'education' => [
