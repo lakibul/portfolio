@@ -299,46 +299,6 @@
             <h2 class="text-4xl md:text-5xl font-black text-slate-900">Work <span class="hl text-indigo-600">History</span></h2>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
-
-            {{-- Education --}}
-            <div class="reveal bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
-                <div class="flex items-center gap-2 mb-5">
-                    <div class="w-1 h-5 rounded-full bg-indigo-500"></div>
-                    <h3 class="font-mono text-xs font-bold text-indigo-600 uppercase tracking-widest">Education</h3>
-                </div>
-                @foreach($data['education'] as $edu)
-                <div class="mb-5 last:mb-0 pb-5 last:pb-0 border-b border-slate-100 last:border-0">
-                    <p class="text-slate-900 font-semibold text-sm leading-snug">{{ $edu['degree'] }}</p>
-                    <p class="text-indigo-500 text-xs mt-1 font-medium">{{ $edu['institution'] }}</p>
-                    <div class="flex items-center gap-3 mt-1.5">
-                        <span class="text-slate-400 text-xs font-mono">{{ $edu['period'] }}</span>
-                        @if(isset($edu['score']))
-                        <span class="text-emerald-600 text-xs font-mono font-semibold">{{ $edu['score'] }}</span>
-                        @endif
-                    </div>
-                </div>
-                @endforeach
-            </div>
-
-            {{-- Certifications --}}
-            <div class="reveal rd1 bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
-                <div class="flex items-center gap-2 mb-5">
-                    <div class="w-1 h-5 rounded-full bg-violet-500"></div>
-                    <h3 class="font-mono text-xs font-bold text-violet-600 uppercase tracking-widest">Certifications</h3>
-                </div>
-                @foreach($data['certifications'] as $cert)
-                <div class="flex items-start gap-3 mb-4 last:mb-0">
-                    <div class="w-5 h-5 rounded-full bg-violet-50 border border-violet-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <svg class="w-3 h-3 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                    </div>
-                    <span class="text-slate-600 text-sm leading-relaxed">{{ $cert }}</span>
-                </div>
-                @endforeach
-            </div>
-
-        </div>
-
         {{-- Timeline --}}
         <div class="ml-2 space-y-0">
             @foreach($data['experience'] as $job)
@@ -437,12 +397,64 @@
 </section>
 
 
+{{-- ══════════════════════ EDUCATION & CERTIFICATIONS ══════════════════════ --}}
+<section id="education" class="py-28 bg-slate-50 overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-16 reveal">
+            <p class="font-mono text-xs text-indigo-500 uppercase tracking-[.2em] mb-3">05. Background</p>
+            <h2 class="text-4xl md:text-5xl font-black text-slate-900">Education & <span class="hl text-indigo-600">Certifications</span></h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            {{-- Education --}}
+            <div class="reveal bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-1 h-5 rounded-full bg-indigo-500"></div>
+                    <h3 class="font-mono text-xs font-bold text-indigo-600 uppercase tracking-widest">Education</h3>
+                </div>
+                @foreach($data['education'] as $edu)
+                <div class="mb-5 last:mb-0 pb-5 last:pb-0 border-b border-slate-100 last:border-0">
+                    <p class="text-slate-900 font-semibold text-sm leading-snug">{{ $edu['degree'] }}</p>
+                    <p class="text-indigo-500 text-xs mt-1 font-medium">{{ $edu['institution'] }}</p>
+                    <div class="flex items-center gap-3 mt-1.5">
+                        <span class="text-slate-400 text-xs font-mono">{{ $edu['period'] }}</span>
+                        @if(isset($edu['score']))
+                        <span class="text-emerald-600 text-xs font-mono font-semibold">{{ $edu['score'] }}</span>
+                        @endif
+                    </div>
+                </div>
+                @endforeach
+            </div>
+
+            {{-- Certifications --}}
+            <div class="reveal rd1 bg-white border border-slate-100 rounded-2xl p-6 shadow-sm">
+                <div class="flex items-center gap-2 mb-6">
+                    <div class="w-1 h-5 rounded-full bg-violet-500"></div>
+                    <h3 class="font-mono text-xs font-bold text-violet-600 uppercase tracking-widest">Certifications</h3>
+                </div>
+                @foreach($data['certifications'] as $cert)
+                <div class="flex items-start gap-3 mb-4 last:mb-0">
+                    <div class="w-5 h-5 rounded-full bg-violet-50 border border-violet-100 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg class="w-3 h-3 text-violet-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <span class="text-slate-600 text-sm leading-relaxed">{{ $cert }}</span>
+                </div>
+                @endforeach
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
 {{-- ══════════════════════ CONTACT ══════════════════════ --}}
 <section id="contact" class="py-28 bg-slate-50">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <div class="text-center mb-16 reveal">
-            <p class="font-mono text-xs text-indigo-500 uppercase tracking-[.2em] mb-3">05. Contact</p>
+            <p class="font-mono text-xs text-indigo-500 uppercase tracking-[.2em] mb-3">06. Contact</p>
             <h2 class="text-4xl md:text-5xl font-black text-slate-900">Let's <span class="hl text-indigo-600">Connect</span></h2>
             <p class="text-slate-500 mt-4 max-w-sm mx-auto text-sm">Open to full-time roles, freelance work, or just a conversation about backend engineering.</p>
         </div>
