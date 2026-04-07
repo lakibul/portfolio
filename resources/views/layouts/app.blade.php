@@ -8,8 +8,8 @@
     <meta name="author" content="Md Lakibul Hasan">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script>
-        document.documentElement.classList.remove('dark');
-        try { localStorage.setItem('theme', 'light'); } catch (e) {}
+        document.documentElement.classList.add('dark');
+        try { localStorage.setItem('theme', 'dark'); } catch (e) {}
     </script>
 
     <!-- PWA Meta Tags -->
@@ -317,18 +317,18 @@
 
     @stack('styles')
 </head>
-<body class="font-sans antialiased bg-white text-gray-900">
+<body class="font-sans antialiased bg-slate-950 text-slate-100">
     <!-- Loading Screen -->
-    <div id="loading-screen" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
-        <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-primary-600"></div>
+    <div id="loading-screen" class="fixed inset-0 bg-slate-950 z-50 flex items-center justify-center">
+        <div class="w-10 h-10 rounded-full border-2 border-slate-800 border-t-indigo-500 animate-spin"></div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-200">
+    <nav class="fixed top-0 left-0 right-0 z-40 bg-slate-950/90 backdrop-blur-md border-b border-slate-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex-shrink-0">
-                    <a href="#hero" class="text-xl font-bold gradient-text">Md Lakibul Hasan</a>
+                    <a href="#hero" class="font-mono text-sm font-bold text-white tracking-tight">Md Lakibul<span class="text-indigo-400">.dev</span></a>
                 </div>
 
                 <!-- Desktop Navigation -->
@@ -367,7 +367,7 @@
         </div>
 
         <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-dark-900 border-t border-gray-200 dark:border-dark-700">
+        <div id="mobile-menu" class="md:hidden hidden bg-slate-950 border-t border-slate-800">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">About</a>
                 <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">Skills</a>
@@ -384,12 +384,12 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+    <footer class="bg-slate-950 border-t border-slate-800/60">
         <div class="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p class="text-slate-500 dark:text-slate-500 text-sm">
-                &copy; {{ date('Y') }} <span class="font-semibold text-slate-700 dark:text-slate-300">Md Lakibul Hasan</span>. All rights reserved.
+            <p class="text-slate-600 text-sm">
+                &copy; {{ date('Y') }} <span class="font-semibold text-slate-400">Md Lakibul Hasan</span>. All rights reserved.
             </p>
-            <p class="font-mono text-xs text-slate-400 dark:text-slate-600">
+            <p class="font-mono text-xs text-slate-700">
                 Built with Laravel &amp; Tailwind CSS
             </p>
         </div>
