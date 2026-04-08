@@ -136,7 +136,7 @@
 
                     {{-- Photo --}}
                     <div class="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl shadow-indigo-200/60 border border-slate-100">
-                        <img src="{{ asset('assets/images/profile.jpg') }}"
+                        <img src="https://i.ibb.co.com/9mwsLCYm/1768554565016-1.png"
                              alt="{{ $data['name'] }}"
                              class="w-full h-full object-cover object-top"
                              onerror="this.src='https://ui-avatars.com/api/?name={{ urlencode($data['name']) }}&size=400&background=4f46e5&color=ffffff&bold=true&format=svg'">
