@@ -88,10 +88,18 @@ class PortfolioController extends Controller
                 [
                     'name'         => 'ReplyFlow — AI-Powered Customer Support SaaS',
                     'description'  => 'Built a production-ready AI SaaS (ReplyFlow) using Laravel 12, OpenAI GPT-4o-mini & Redis queues — auto-generates customer support replies, summaries, and ticket classifications with tiered subscription limits',
-                    'image'        => 'https://media.licdn.com/dms/image/v2/D5622AQEg3tkUYrw9yw/feedshare-shrink_2048_1536/B56Z11fF7GHkAg-/0/1775792578517?e=1777507200&v=beta&t=ESFttEaXOOYtbxiwJdlUzndq4Il768bKCcbs3pEv3QI',
+                    'image'        => 'https://i.postimg.cc/vmNSGCRp/Gemini-Generated-Image-amrpv4amrpv4amrp.png',
                     'technologies' => ['Laravel 12', 'OpenAI', 'MySQL', 'Redis'],
                     'features'     => ['AI reply generation', 'Message summarization', 'Auto ticket classification', 'Redis async queue processing', 'Subscription-based usage limits', 'Web dashboard portal', 'Fake AI mode for local dev'],
                     'github'       => 'https://github.com/lakibul/replyflow',
+                ],
+                [
+                    'name'         => 'Mini HR system — Compact HR panel',
+                    'description'  => 'Built a Mini HR system with role-based workflows for employee management, attendance tracking, and leave approvals through both REST APIs and an admin dashboard. Implemented a production-style backend architecture using Node.js + TypeScript + Express with PostgreSQL, MongoDB, Redis/BullMQ, and scheduler jobs for async processing and automation.',
+                    'image'        => 'https://resources.workable.com/wp-content/uploads/2018/09/How-to-hire-your-first-HR-person-thumb.png',
+                    'technologies' => ['Node.js', 'TypeScript', 'Express.js', 'PostgreSQL (TypeORM)', 'MongoDB (Mongoose)', 'Redis', 'BullMQ', 'node-cron', 'EJS', 'Tailwind CSS', 'Zod', 'JWT', 'Jest', 'Docker Compose'],
+                    'features' => ['Role-based authentication', 'Employee management (CRUD)', 'Attendance check-in/check-out', 'Attendance record management', 'Leave request workflow', 'Leave approve/reject actions', 'Leave balance tracking', 'Daily/monthly attendance reports', 'Queue-based background jobs', 'Automated scheduler tasks', 'Admin dashboard portal', 'Activity/notification logging'],
+                    'github'       => 'https://github.com/lakibul/mini-hr.git',
                 ],
                 [
                     'name'         => 'Simple Admission',
