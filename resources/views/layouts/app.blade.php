@@ -416,18 +416,30 @@
                 document.getElementById('mobile-menu')?.classList.toggle('hidden');
             });
 
-            // ── Smooth scroll + close mobile menu ─────────────────────────────
+            // ── Smooth scroll + update URL hash + close mobile menu ──────────
+            const scrollToSection = (hash) => {
+                const target = document.querySelector(hash);
+                if (!target) return;
+                window.scrollTo({ top: target.offsetTop - 64, behavior: 'smooth' });
+                history.pushState(null, '', hash);
+            };
+
             document.addEventListener('click', e => {
                 const anchor = e.target.closest('a[href^="#"]');
                 if (!anchor) return;
-                const target = document.querySelector(anchor.getAttribute('href'));
-                if (!target) return;
+                const hash = anchor.getAttribute('href');
+                if (!document.querySelector(hash)) return;
                 e.preventDefault();
-                window.scrollTo({ top: target.offsetTop - 64, behavior: 'smooth' });
+                scrollToSection(hash);
                 document.getElementById('mobile-menu')?.classList.add('hidden');
             });
 
-            // ── Active nav highlighting ────────────────────────────────────────
+            // ── Scroll to hash on page load ───────────────────────────────────
+            if (window.location.hash) {
+                setTimeout(() => scrollToSection(window.location.hash), 100);
+            }
+
+            // ── Active nav highlighting + update URL on scroll ────────────────
             const navLinks = document.querySelectorAll('.nav-link');
             const sectionObserver = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
@@ -437,6 +449,7 @@
                         link.classList.toggle('text-indigo-600', link.getAttribute('href') === `#${id}`);
                         link.classList.toggle('dark:text-indigo-400', link.getAttribute('href') === `#${id}`);
                     });
+                    history.replaceState(null, '', id === 'hero' ? window.location.pathname : `#${id}`);
                 });
             }, { threshold: 0.35, rootMargin: '-64px 0px -40% 0px' });
             document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
