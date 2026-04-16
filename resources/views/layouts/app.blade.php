@@ -451,7 +451,7 @@
                     });
                     history.replaceState(null, '', id === 'hero' ? window.location.pathname : `#${id}`);
                 });
-            }, { threshold: 0.35, rootMargin: '-64px 0px -40% 0px' });
+            }, { threshold: 0.1, rootMargin: '-64px 0px -30% 0px' });
             document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
 
             // ── Scroll progress bar ────────────────────────────────────────────
