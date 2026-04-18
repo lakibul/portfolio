@@ -643,7 +643,7 @@ window.addEventListener('load', () => {
 
 // ── Typewriter ────────────────────────────────────────────────
 (function () {
-    const words = ['Backend Engineer','Laravel Developer','API Architect','Node.js Developer','Microservices Dev','AI Integration Dev'];
+    const words = ['Backend Engineer','Laravel Developer','Node.js Developer','CodeIgniter Developer','PHP','JS','API Architect','Microservices Dev','AI Integration Dev'];
     let wi = 0, ci = 0, del = false;
     const el = document.getElementById('typing-text');
     if (!el) return;
