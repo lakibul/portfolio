@@ -125,21 +125,18 @@ class PortfolioController extends Controller
                 [
                     'name'         => 'Laravel Chat with Vue.js',
                     'description'  => 'Real-time private messaging app with typing indicators and unread tracking.',
-                    'image'        => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80',
                     'technologies' => ['Laravel', 'Vue.js', 'Pusher'],
-                    'github'         => 'https://github.com/lakibul/laravel-chat.git',
+                    'github'       => 'https://github.com/lakibul/laravel-chat.git',
                 ],
                 [
                     'name'         => 'Health Point',
                     'description'  => 'Hospital management system for patient and operational workflows.',
-                    'image'        => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80',
                     'technologies' => ['Laravel', 'MySQL'],
-                    'github'         => 'https://github.com/lakibul/health-point.git',
+                    'github'       => 'https://github.com/lakibul/health-point.git',
                 ],
                 [
                     'name'         => 'Hipe',
                     'description'  => 'Online-based Hotel and Booking Management (ERP) software using PHP (CodeIgniter), Node.js and Flutter with google translation microservice.',
-                    'image'        => 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?auto=format&fit=crop&w=1200&q=80',
                     'technologies' => ['CodeIgniter v3', 'Node.js', 'MySQL', 'Whatsapp API', 'Google Translation API', 'Flutter'],
                     'link'         => '#',
                 ],
@@ -167,6 +164,16 @@ class PortfolioController extends Controller
             'certifications' => [
                 'Training on PHP Laravel - BASIS-BITM (Jan 2022 - Mar 2022)',
                 'Data Structures and Algorithms - Bohubrihi',
+            ],
+            'skill_bars' => [
+                ['name' => 'PHP / Laravel',          'w' => 95, 'note' => 'v5 — v12, microservices, queues'],
+                ['name' => 'Node.js / TypeScript',   'w' => 82, 'note' => 'Express, REST, realtime'],
+                ['name' => 'MySQL / PostgreSQL',      'w' => 90, 'note' => 'Schema design, tuning, indexing'],
+                ['name' => 'Redis / Queues',          'w' => 85, 'note' => 'Caching, async workflows'],
+                ['name' => 'REST API Architecture',   'w' => 92, 'note' => 'Versioning, auth, OpenAPI'],
+                ['name' => 'Docker / DevOps',         'w' => 72, 'note' => 'Compose, CI/CD, Ubuntu'],
+                ['name' => 'OpenAI / Automation',     'w' => 80, 'note' => 'GPT-4o-mini, prompt eng.'],
+                ['name' => 'Vue.js / Inertia',        'w' => 68, 'note' => 'Laravel-connected SPAs'],
             ],
         ];
 

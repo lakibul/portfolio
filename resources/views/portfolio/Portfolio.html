@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Md Lakibul Hasan — Backend Software Engineer</title>
+<meta name="description" content="Backend Software Engineer — 4+ years building scalable APIs, microservices, and AI-driven automation with PHP, Laravel, and Node.js." />
+
+<!-- Tailwind via Play CDN (drop-in). For production: run `npx tailwindcss` and replace with compiled CSS. -->
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter Tight','ui-sans-serif','system-ui','sans-serif'],
+          display: ['Fraunces','ui-serif','Georgia','serif'],
+          mono: ['JetBrains Mono','ui-monospace','SFMono-Regular','Menlo','monospace'],
+        },
+        colors: {
+          ink: {
+            50:'#f7f7f8', 100:'#ececee', 200:'#d4d4d9', 300:'#a8a8b1',
+            400:'#6f6f7a', 500:'#4a4a53', 600:'#2e2e35', 700:'#1f1f24',
+            800:'#141418', 900:'#0a0a0c', 950:'#050507'
+          },
+        },
+        boxShadow: {
+          'soft': '0 1px 0 0 rgba(255,255,255,0.04) inset, 0 10px 30px -10px rgba(0,0,0,0.5)',
+          'softLight': '0 1px 0 0 rgba(0,0,0,0.02) inset, 0 10px 30px -12px rgba(0,0,0,0.12)',
+        }
+      }
+    }
+  }
+</script>
+
+<!-- Fonts: Inter Tight (UI), Fraunces (display serif for numerals), JetBrains Mono (code) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --grid-line: rgba(255,255,255,0.06);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-feature-settings: "ss01","cv11","ss03"; }
+
+  /* thin hairline dividers tuned per theme */
+  .hair { border-color: rgba(255,255,255,0.08); }
+  html:not(.dark) .hair { border-color: rgba(0,0,0,0.08); }
+
+  /* dotted grid backdrop, very subtle */
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  html:not(.dark) .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+  }
+
+  /* entrance reveal */
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* scrolling marquee */
+  @keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+  .marquee-track { animation: marquee 40s linear infinite; }
+
+  /* project card hover: subtle 3D tilt + image zoom */
+  .proj-card { transform-style: preserve-3d; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+  .proj-card:hover { transform: perspective(1200px) rotateX(1.2deg) rotateY(-1.2deg) translateY(-2px); }
+  .proj-card .proj-img { transition: transform .7s cubic-bezier(.2,.7,.2,1); }
+  .proj-card:hover .proj-img { transform: scale(1.04); }
+  .proj-card .proj-overlay { opacity: 0; transition: opacity .4s ease; }
+  .proj-card:hover .proj-overlay { opacity: 1; }
+
+  /* skill bar fill */
+  .bar-fill { width: 0; transition: width 1.4s cubic-bezier(.2,.7,.2,1); }
+  .bar-fill.in { width: var(--w, 80%); }
+
+  /* blinking caret */
+  @keyframes blink { 50% { opacity: 0 } }
+  .caret { display:inline-block; width:.6ch; background: currentColor; animation: blink 1s steps(1) infinite; }
+
+  /* tiny dot badge pulse */
+  @keyframes pulse-dot { 0%,100% { box-shadow: 0 0 0 0 rgba(34,197,94,.45) } 70% { box-shadow: 0 0 0 8px rgba(34,197,94,0) } }
+  .dot-pulse { animation: pulse-dot 2s infinite; }
+
+  /* link underline animation */
+  .u-link { position:relative; }
+  .u-link::after { content:""; position:absolute; left:0; right:100%; bottom:-2px; height:1px; background:currentColor; transition:right .35s ease; }
+  .u-link:hover::after { right:0; }
+
+  /* focus ring */
+  :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 4px; }
+
+  /* hero portrait: duotone grayscale + scan lines */
+  .portrait-img {
+    filter: grayscale(1) contrast(1.08) brightness(0.95);
+    transition: filter .6s ease, transform .6s ease;
+  }
+  .reveal.in .portrait-img, .portrait-img:hover { filter: grayscale(1) contrast(1.12) brightness(1); }
+  .portrait-scan {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.04) 0px,
+      rgba(255,255,255,0.04) 1px,
+      transparent 1px,
+      transparent 3px
+    );
+  }
+  html:not(.dark) .portrait-img { filter: grayscale(1) contrast(1.05) brightness(1.02); }
+
+  /* editorial project row */
+  .proj-row-img { transition: transform .9s cubic-bezier(.2,.7,.2,1), filter .6s ease; filter: grayscale(0.15) contrast(1.02); }
+  .proj-row:hover .proj-row-img { transform: scale(1.03); filter: grayscale(0) contrast(1.05); }
+  .proj-row .proj-row-cta { transition: transform .4s ease, background .3s ease; }
+  .proj-row:hover .proj-row-cta { transform: translateX(4px); }
+  .proj-row-index { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+
+<body class="bg-ink-950 text-ink-100 dark:bg-ink-950 dark:text-ink-100 antialiased selection:bg-white selection:text-black">
+
+<!-- Scroll progress -->
+<div id="progress" class="fixed top-0 left-0 h-[2px] bg-white dark:bg-white z-[60] w-0"></div>
+
+<!-- NAV -->
+<header class="fixed top-0 inset-x-0 z-50">
+  <div class="mx-auto max-w-[1280px] px-6 lg:px-10 pt-5">
+    <nav class="flex items-center justify-between rounded-full border hair bg-ink-900/70 dark:bg-ink-900/70 backdrop-blur-xl px-5 py-2.5">
+      <a href="#hero" class="flex items-center gap-2 font-mono text-[13px] tracking-tight">
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 dot-pulse"></span>
+        <span class="opacity-70">~/</span><span class="font-semibold">lakibul</span><span class="opacity-40">.dev</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-7 text-[13px] text-ink-300 dark:text-ink-300">
+        <li><a class="u-link hover:text-white" href="#projects">Projects</a></li>
+        <li><a class="u-link hover:text-white" href="#experience">Experience</a></li>
+        <li><a class="u-link hover:text-white" href="#skills">Skills</a></li>
+        <li><a class="u-link hover:text-white" href="#about">About</a></li>
+        <li><a class="u-link hover:text-white" href="#contact">Contact</a></li>
+      </ul>
+      <div class="flex items-center gap-2">
+        <button id="themeToggle" aria-label="Toggle theme" class="w-9 h-9 grid place-items-center rounded-full border hair hover:bg-white/5 transition">
+          <svg class="theme-sun w-4 h-4 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="theme-moon w-4 h-4 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+        </button>
+        <a href="#contact" class="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-white text-ink-950 text-[13px] font-medium px-4 py-2 hover:bg-ink-100 transition">
+          Get in touch
+          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section id="hero" class="relative pt-36 pb-24 lg:pt-44 lg:pb-32 overflow-hidden">
+  <div class="absolute inset-0 grid-bg opacity-60 [mask-image:radial-gradient(ellipse_at_center,black_30%,transparent_75%)]"></div>
+  <div class="relative mx-auto max-w-[1280px] px-6 lg:px-10">
+
+    <div class="grid grid-cols-12 gap-8 items-end">
+      <!-- Left: meta + copy -->
+      <div class="col-span-12 lg:col-span-8">
+        <div class="flex items-center gap-3 text-[12px] font-mono tracking-wide text-ink-300 dark:text-ink-300 mb-8 reveal">
+          <span class="inline-flex items-center gap-2 rounded-full border hair px-3 py-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 dot-pulse"></span>
+            Available for opportunities
+          </span>
+          <span class="hidden sm:inline opacity-50">— Dhaka, Bangladesh · UTC+6</span>
+        </div>
+
+        <h1 class="reveal font-display font-medium text-[clamp(52px,9vw,128px)] leading-[0.95] tracking-[-0.03em]">
+          Md Lakibul
+          <span class="block italic text-ink-300 dark:text-ink-300">Hasan<span class="caret align-baseline ml-1 text-ink-300 dark:text-ink-300" style="height:0.8em"></span></span>
+        </h1>
+
+        <div class="mt-10 max-w-2xl reveal">
+          <p class="text-[15px] md:text-[17px] leading-relaxed text-ink-200 dark:text-ink-200">
+            Backend Software Engineer with <span class="text-white">4+ years</span> building scalable APIs, microservices, and AI-driven automation. I ship clean systems in <span class="font-mono text-[0.92em] text-white">PHP · Laravel · Node.js · Redis</span>.
+          </p>
+        </div>
+
+        <div class="mt-10 flex flex-wrap items-center gap-3 reveal">
+          <a href="#projects" class="inline-flex items-center gap-2 rounded-full bg-white text-ink-950 text-[14px] font-medium pl-5 pr-4 py-3 hover:bg-ink-100 transition">
+            View selected work
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="https://lakibul.vercel.app/download-cv" class="inline-flex items-center gap-2 rounded-full border hair text-[14px] px-5 py-3 hover:bg-white/5 transition">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+            Download CV
+          </a>
+          <div class="ml-2 hidden sm:flex items-center gap-4 text-[13px] text-ink-300">
+            <a href="https://github.com/lakibul" class="u-link hover:text-white">GitHub</a>
+            <span class="opacity-30">·</span>
+            <a href="https://www.linkedin.com/in/lakibul-hasan" class="u-link hover:text-white">LinkedIn</a>
+            <span class="opacity-30">·</span>
+            <a href="/cdn-cgi/l/email-protection#e589848e8c879089cb869680a58288848c89cb868a88" class="u-link hover:text-white">Email</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: enhanced portrait module -->
+      <div class="col-span-12 lg:col-span-4 reveal">
+        <div class="relative">
+          <!-- crosshair corner marks -->
+          <span class="absolute -top-2 -left-2 w-5 h-5 border-t border-l hair"></span>
+          <span class="absolute -top-2 -right-2 w-5 h-5 border-t border-r hair"></span>
+          <span class="absolute -bottom-2 -left-2 w-5 h-5 border-b border-l hair"></span>
+          <span class="absolute -bottom-2 -right-2 w-5 h-5 border-b border-r hair"></span>
+
+          <!-- outer frame -->
+          <div class="p-2 rounded-2xl border hair bg-gradient-to-br from-white/[0.04] to-transparent">
+            <div class="relative aspect-[4/5] rounded-xl overflow-hidden bg-ink-800">
+              <!-- portrait with duotone treatment -->
+              <img src="https://i.ibb.co.com/9mwsLCYm/1768554565016-1.png" alt="Md Lakibul Hasan" class="portrait-img w-full h-full object-cover" loading="eager" />
+
+              <!-- scan-line overlay -->
+              <div class="absolute inset-0 portrait-scan pointer-events-none mix-blend-overlay opacity-40"></div>
+              <!-- top scrim -->
+              <div class="absolute inset-0 bg-gradient-to-t from-ink-950/75 via-transparent to-ink-950/20 pointer-events-none"></div>
+
+              <!-- center framing reticle -->
+              <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-25">
+                <svg class="w-16 h-16" viewBox="0 0 64 64" fill="none" stroke="white" stroke-width="0.75">
+                  <rect x="12" y="12" width="40" height="40" />
+                  <line x1="32" y1="4" x2="32" y2="14"/><line x1="32" y1="50" x2="32" y2="60"/>
+                  <line x1="4" y1="32" x2="14" y2="32"/><line x1="50" y1="32" x2="60" y2="32"/>
+                </svg>
+              </div>
+
+              <!-- bottom identity plate -->
+              <div class="absolute bottom-0 inset-x-0 p-3.5">
+                <div class="rounded-lg border border-white/15 bg-black/40 backdrop-blur-md px-3.5 py-2.5 flex items-center justify-between">
+                  <div>
+                    <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-white/60">Subject</div>
+                    <div class="text-white text-[13px] font-medium leading-tight mt-0.5">Md Lakibul Hasan</div>
+                  </div>
+                  <div class="text-right">
+                    <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-white/60">Role</div>
+                    <div class="text-white text-[13px] font-medium leading-tight mt-0.5">Backend Eng.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- floating year-badge (top-right, rotated) -->
+          <div class="absolute -top-3 -right-3 rounded-full border hair bg-ink-950 px-3 py-1.5 font-mono text-[10px] tracking-[0.25em] text-ink-200 rotate-[6deg] shadow-soft">
+            EST · 2021
+          </div>
+
+          <!-- floating stat chip (bottom-left) -->
+          <div class="absolute -bottom-4 -left-4 rounded-xl border hair bg-ink-900/95 backdrop-blur px-4 py-3 shadow-soft">
+            <div class="flex items-end gap-3">
+              <div class="font-display text-3xl leading-none">4<span class="text-ink-400">+</span></div>
+              <div class="font-mono text-[9.5px] tracking-widest uppercase text-ink-400 leading-tight">Years<br/>shipping</div>
+            </div>
+          </div>
+
+          <!-- tech sticker (bottom-right) -->
+          <div class="absolute -bottom-3 -right-3 w-16 h-16 rounded-full border hair bg-ink-950 grid place-items-center rotate-[-8deg]">
+            <div class="text-center">
+              <div class="font-mono text-[8px] tracking-[0.2em] text-ink-400">STACK</div>
+              <div class="font-display text-[13px] leading-none mt-0.5">PHP</div>
+              <div class="font-mono text-[7px] text-ink-500 mt-0.5">LARAVEL</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- bottom meta row -->
+    <div class="mt-20 pt-6 border-t hair grid grid-cols-2 md:grid-cols-4 gap-6 font-mono text-[12px] text-ink-400">
+      <div><div class="text-ink-300 uppercase tracking-[0.18em] text-[10px] mb-2">Currently</div><div class="text-white">Software Developer · ParallaxLogic</div></div>
+      <div><div class="text-ink-300 uppercase tracking-[0.18em] text-[10px] mb-2">Focus</div><div class="text-white">Microservices · AI Automation · Perf</div></div>
+      <div><div class="text-ink-300 uppercase tracking-[0.18em] text-[10px] mb-2">Stack</div><div class="text-white">PHP · Laravel · Node · Redis · Docker</div></div>
+      <div><div class="text-ink-300 uppercase tracking-[0.18em] text-[10px] mb-2">Based in</div><div class="text-white">Dhaka, BD — open to remote</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<section aria-label="Technologies" class="py-6 border-y hair overflow-hidden">
+  <div class="flex gap-10 marquee-track whitespace-nowrap font-mono text-[13px] text-ink-400 uppercase tracking-[0.22em]">
+    <!-- duplicated for seamless loop -->
+    <div class="flex gap-10 shrink-0">
+      <span>PHP</span><span>✺</span><span>Laravel</span><span>✺</span><span>Node.js</span><span>✺</span><span>MySQL</span><span>✺</span><span>PostgreSQL</span><span>✺</span><span>Redis</span><span>✺</span><span>Docker</span><span>✺</span><span>REST API</span><span>✺</span><span>Microservices</span><span>✺</span><span>OpenAI</span><span>✺</span><span>Vue.js</span><span>✺</span><span>CodeIgniter</span><span>✺</span><span>MongoDB</span><span>✺</span><span>Queue Processing</span><span>✺</span>
+    </div>
+    <div class="flex gap-10 shrink-0" aria-hidden="true">
+      <span>PHP</span><span>✺</span><span>Laravel</span><span>✺</span><span>Node.js</span><span>✺</span><span>MySQL</span><span>✺</span><span>PostgreSQL</span><span>✺</span><span>Redis</span><span>✺</span><span>Docker</span><span>✺</span><span>REST API</span><span>✺</span><span>Microservices</span><span>✺</span><span>OpenAI</span><span>✺</span><span>Vue.js</span><span>✺</span><span>CodeIgniter</span><span>✺</span><span>MongoDB</span><span>✺</span><span>Queue Processing</span><span>✺</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS — editorial layout -->
+<section id="projects" class="py-24 lg:py-32">
+  <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+
+    <!-- header -->
+    <div class="grid grid-cols-12 gap-8 mb-16 reveal">
+      <div class="col-span-12 md:col-span-7">
+        <div class="font-mono text-[11px] tracking-[0.25em] text-ink-400 uppercase mb-4">01 / Selected Work</div>
+        <h2 class="font-display text-5xl md:text-7xl tracking-[-0.02em] leading-[0.95]">
+          Systems shipped,<br/><em class="font-normal text-ink-300">not just demoed.</em>
+        </h2>
+      </div>
+      <div class="col-span-12 md:col-span-5 md:pt-6 flex flex-col justify-end">
+        <p class="text-[14.5px] text-ink-300 leading-relaxed max-w-sm">A cross-section of production systems across SaaS, e-commerce, AI, and real-time apps. Each shipped, maintained, and measured in production.</p>
+        <div class="mt-6 flex items-center gap-3 font-mono text-[11px] text-ink-400">
+          <span class="px-2.5 py-1 rounded-full border hair">10+ shipped</span>
+          <span class="px-2.5 py-1 rounded-full border hair">2021 — 2026</span>
+          <span class="px-2.5 py-1 rounded-full border hair">5 industries</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- featured project (spotlight) -->
+    <article id="proj-featured" class="proj-row reveal group relative rounded-2xl border hair overflow-hidden bg-ink-900/40 mb-16">
+      <div class="grid grid-cols-12">
+        <!-- image -->
+        <a href="https://play.google.com/store/search?q=wyzr&c=apps&hl=en" target="_blank" rel="noopener" class="col-span-12 lg:col-span-7 relative block aspect-[16/10] lg:aspect-auto overflow-hidden bg-ink-800">
+          <img class="proj-row-img w-full h-full object-cover" src="https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/b25b8ca01d8503e3cbd75275d5c9effa-1776173266792/Screenshot_11.png" alt="Wyzr preview" loading="lazy" />
+          <div class="absolute inset-0 bg-gradient-to-r from-ink-950/60 via-transparent to-transparent"></div>
+          <!-- top-left badge -->
+          <div class="absolute top-5 left-5 flex items-center gap-2">
+            <span class="inline-flex items-center gap-1.5 rounded-full bg-white/95 text-ink-950 px-3 py-1.5 font-mono text-[10px] tracking-[0.2em] uppercase font-semibold">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+              Featured · 2024
+            </span>
+          </div>
+          <!-- bottom-left index -->
+          <div class="absolute bottom-5 left-5 font-mono text-[10px] uppercase tracking-[0.22em] text-white/75">
+            Case study · 01
+          </div>
+        </a>
+
+        <!-- copy -->
+        <div class="col-span-12 lg:col-span-5 p-7 md:p-9 lg:p-10 flex flex-col">
+          <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-400 mb-4">Social SaaS — Production</div>
+          <h3 class="font-display text-3xl md:text-4xl tracking-[-0.01em] leading-[1.05]">
+            Wyzr <span class="text-ink-400">—</span> Meet activity friends, in the real world.
+          </h3>
+          <p class="mt-5 text-[14.5px] text-ink-300 leading-relaxed">
+            Community-driven social platform for older adults enabling real-world connections. Built on <span class="font-mono text-white">Laravel</span> with Flutter clients, Stripe subscriptions, and Redis-backed queues for events, chat, and payment flows at scale.
+          </p>
+
+          <!-- metric strip -->
+          <div class="mt-7 grid grid-cols-3 gap-4 py-5 border-y hair">
+            <div>
+              <div class="font-display text-2xl">Stripe</div>
+              <div class="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-400 mt-1">Subscriptions</div>
+            </div>
+            <div>
+              <div class="font-display text-2xl">Redis</div>
+              <div class="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-400 mt-1">Queue backed</div>
+            </div>
+            <div>
+              <div class="font-display text-2xl">Flutter</div>
+              <div class="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-400 mt-1">iOS · Android</div>
+            </div>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-1.5">
+            <span class="font-mono text-[11px] text-ink-300 border hair rounded-full px-2.5 py-1">Laravel</span>
+            <span class="font-mono text-[11px] text-ink-300 border hair rounded-full px-2.5 py-1">Flutter</span>
+            <span class="font-mono text-[11px] text-ink-300 border hair rounded-full px-2.5 py-1">Stripe</span>
+            <span class="font-mono text-[11px] text-ink-300 border hair rounded-full px-2.5 py-1">Redis</span>
+            <span class="font-mono text-[11px] text-ink-300 border hair rounded-full px-2.5 py-1">Queues</span>
+          </div>
+
+          <div class="mt-auto pt-8">
+            <a href="https://play.google.com/store/search?q=wyzr&c=apps&hl=en" target="_blank" rel="noopener"
+               class="proj-row-cta inline-flex items-center gap-2 text-[14px] text-white group/link">
+              <span class="u-link">View on Play Store</span>
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3-column grid of project cards -->
+    <div id="projectsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="py-24 lg:py-32 border-t hair">
+  <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+    <div class="grid grid-cols-12 gap-8">
+      <div class="col-span-12 lg:col-span-4 reveal">
+        <div class="font-mono text-[11px] tracking-[0.25em] text-ink-400 uppercase mb-4">02 / Experience</div>
+        <h2 class="font-display text-4xl md:text-6xl tracking-[-0.02em] leading-[1]">Work history</h2>
+        <p class="mt-6 text-[14px] text-ink-300 max-w-sm leading-relaxed">Shipping backend systems across fintech-adjacent, e-commerce, and SaaS domains.</p>
+      </div>
+
+      <div class="col-span-12 lg:col-span-8 space-y-4">
+        <!-- role 1 -->
+        <article class="reveal group rounded-2xl border hair bg-ink-900/40 hover:bg-ink-900/60 transition overflow-hidden">
+          <div class="p-6 md:p-8">
+            <div class="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="font-mono text-[11px] text-emerald-400 flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> Current</span>
+                  <span class="font-mono text-[11px] text-ink-400">Shahjadpur, Gulshan, Dhaka</span>
+                </div>
+                <h3 class="text-2xl md:text-3xl tracking-tight">Software Developer</h3>
+                <div class="text-ink-300 mt-1">ParallaxLogic InfoTech</div>
+              </div>
+              <div class="font-mono text-[12px] text-ink-300 whitespace-nowrap">Jan 2023 — Present</div>
+            </div>
+            <ul class="mt-6 space-y-2.5 text-[14.5px] text-ink-200 leading-relaxed">
+              <li class="flex gap-3"><span class="text-ink-500 mt-2 shrink-0">—</span>Develop and maintain microservice-oriented backend services with <span class="font-mono text-white">Laravel</span>, <span class="font-mono text-white">CodeIgniter</span>, and <span class="font-mono text-white">Node.js</span>.</li>
+              <li class="flex gap-3"><span class="text-ink-500 mt-2 shrink-0">—</span>Integrated APIs, legacy PHP migrations, and data pipelines including scraping and external service sync.</li>
+              <li class="flex gap-3"><span class="text-ink-500 mt-2 shrink-0">—</span>Improved response time by <span class="text-white font-medium">25%</span> through SQL/MongoDB tuning and Redis caching.</li>
+              <li class="flex gap-3"><span class="text-ink-500 mt-2 shrink-0">—</span>Built asynchronous workflows for notifications, API jobs, and data synchronization.</li>
+              <li class="flex gap-3"><span class="text-ink-500 mt-2 shrink-0">—</span>Implemented analytics integrations (DataForSEO) for SERP and keyword intelligence.</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- role 2 -->
+        <article class="reveal group rounded-2xl border hair bg-ink-900/40 hover:bg-ink-900/60 transition overflow-hidden">
+          <div class="p-6 md:p-8">
+            <div class="flex flex-wrap items-start justify-between gap-4">
+              <div>
+                <div class="flex items-center gap-3 mb-2">
+                  <span class="font-mono text-[11px] text-ink-400">Uttara, Dhaka</span>
+                </div>
+                <h3 class="text-2xl md:text-3xl tracking-tight">Web Developer</h3>
+                <div class="text-ink-300 mt-1">Uttara InfoTech</div>
+              </div>
+              <div class="font-mono text-[12px] text-ink-300 whitespace-nowrap">Aug 2022 — Oct 2022</div>
+            </div>
+            <ul class="mt-6 space-y-2.5 text-[14.5px] text-ink-200 leading-relaxed">
+              <li class="flex gap-3"><span class="text-ink-500 mt-2 shrink-0">—</span>Delivered custom web applications for local clients with focus on usability and performance.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-24 lg:py-32 border-t hair">
+  <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+    <div class="flex items-end justify-between gap-6 mb-12 reveal">
+      <div>
+        <div class="font-mono text-[11px] tracking-[0.25em] text-ink-400 uppercase mb-4">03 / Skills</div>
+        <h2 class="font-display text-4xl md:text-6xl tracking-[-0.02em] leading-[1]">Technical expertise</h2>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-12 gap-6">
+      <!-- Left: proficiency bars -->
+      <div class="col-span-12 lg:col-span-7 space-y-5">
+        <div id="bars"></div>
+      </div>
+      <!-- Right: grouped pills -->
+      <div class="col-span-12 lg:col-span-5 space-y-6">
+        <div class="rounded-2xl border hair p-6 reveal">
+          <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-400 mb-4">Data &amp; Storage</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill">MySQL</span><span class="skill-pill">PostgreSQL</span><span class="skill-pill">MongoDB</span><span class="skill-pill">DynamoDB</span><span class="skill-pill">Firestore</span><span class="skill-pill">Redis</span>
+          </div>
+        </div>
+        <div class="rounded-2xl border hair p-6 reveal">
+          <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-400 mb-4">AI &amp; Automation</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill">OpenAI API</span><span class="skill-pill">Prompt Engineering</span><span class="skill-pill">Automation</span><span class="skill-pill">Queue Processing</span>
+          </div>
+        </div>
+        <div class="rounded-2xl border hair p-6 reveal">
+          <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-400 mb-4">Tools</div>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill">Docker</span><span class="skill-pill">Git</span><span class="skill-pill">Composer</span><span class="skill-pill">Ubuntu</span><span class="skill-pill">REST API</span><span class="skill-pill">Design Patterns</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skill-pill {
+    display:inline-flex; align-items:center; gap:6px;
+    border:1px solid rgba(255,255,255,0.1); border-radius:9999px;
+    padding:6px 12px; font-size:12.5px; font-family: 'JetBrains Mono', ui-monospace, monospace;
+    color: #d4d4d9; background: rgba(255,255,255,0.02);
+    transition: background .2s, color .2s, border-color .2s, transform .2s;
+  }
+  .skill-pill:hover { background: rgba(255,255,255,0.08); color:#fff; border-color: rgba(255,255,255,0.22); }
+  html:not(.dark) .skill-pill { border-color: rgba(0,0,0,0.1); color:#2e2e35; background: rgba(0,0,0,0.02); }
+  html:not(.dark) .skill-pill:hover { background: rgba(0,0,0,0.06); color:#000; border-color: rgba(0,0,0,0.2); }
+</style>
+
+<!-- ABOUT + STATS -->
+<section id="about" class="py-24 lg:py-32 border-t hair">
+  <div class="mx-auto max-w-[1280px] px-6 lg:px-10 grid grid-cols-12 gap-8">
+    <div class="col-span-12 lg:col-span-5 reveal">
+      <div class="font-mono text-[11px] tracking-[0.25em] text-ink-400 uppercase mb-4">04 / About</div>
+      <h2 class="font-display text-4xl md:text-6xl tracking-[-0.02em] leading-[1]">Who I am</h2>
+    </div>
+    <div class="col-span-12 lg:col-span-7 space-y-6">
+      <p class="reveal text-[18px] md:text-[20px] leading-relaxed text-ink-100">
+        Software Engineer with a strong backend focus. Experienced in <span class="text-white">microservices</span>, payment integrations, queue-driven processing, caching, and performance optimization.
+      </p>
+      <p class="reveal text-[16px] leading-relaxed text-ink-300">
+        Recent work includes AI integration and automation using OpenAI APIs. Passionate about clean architecture, performance, and shipping — always learning, always shipping.
+      </p>
+
+      <!-- stats -->
+      <div class="reveal grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/10 dark:bg-white/10 rounded-2xl overflow-hidden border hair mt-6">
+        <div class="bg-ink-950 p-5"><div class="font-display text-4xl">4<span class="text-ink-500">+</span></div><div class="font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-400 mt-2">Years exp.</div></div>
+        <div class="bg-ink-950 p-5"><div class="font-display text-4xl">10<span class="text-ink-500">+</span></div><div class="font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-400 mt-2">Projects shipped</div></div>
+        <div class="bg-ink-950 p-5"><div class="font-display text-4xl">25<span class="text-ink-500">%</span></div><div class="font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-400 mt-2">API perf gain</div></div>
+        <div class="bg-ink-950 p-5"><div class="font-display text-4xl">5</div><div class="font-mono text-[10.5px] uppercase tracking-[0.18em] text-ink-400 mt-2">Industry domains</div></div>
+      </div>
+
+      <!-- education -->
+      <div class="reveal mt-10">
+        <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-400 mb-5">Education</div>
+        <div class="divide-y hair">
+          <div class="py-4 flex flex-wrap items-baseline justify-between gap-3">
+            <div>
+              <div class="text-[15px]">BSc in Computer Science &amp; Engineering</div>
+              <div class="text-ink-400 text-[13px]">Daffodil International University · CGPA 3.36 / 4.00</div>
+            </div>
+            <div class="font-mono text-[12px] text-ink-400">2017 — 2021</div>
+          </div>
+          <div class="py-4 flex flex-wrap items-baseline justify-between gap-3">
+            <div>
+              <div class="text-[15px]">Higher Secondary Certificate (Science)</div>
+              <div class="text-ink-400 text-[13px]">Govt. Haji Mohammad Mohsin College · GPA 4.50 / 5.00</div>
+            </div>
+            <div class="font-mono text-[12px] text-ink-400">2016</div>
+          </div>
+          <div class="py-4 flex flex-wrap items-baseline justify-between gap-3">
+            <div>
+              <div class="text-[15px]">Secondary School Certificate (Science)</div>
+              <div class="text-ink-400 text-[13px]">Chittagong Collegiate School · GPA 5.00 / 5.00</div>
+            </div>
+            <div class="font-mono text-[12px] text-ink-400">2014</div>
+          </div>
+        </div>
+
+        <div class="mt-8">
+          <div class="font-mono text-[11px] tracking-[0.22em] uppercase text-ink-400 mb-3">Certifications</div>
+          <ul class="space-y-1.5 text-[14px] text-ink-200">
+            <li>Training on PHP Laravel — BASIS-BITM <span class="text-ink-400">(Jan 2022 – Mar 2022)</span></li>
+            <li>Data Structures and Algorithms — Bohubrihi</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 lg:py-32 border-t hair">
+  <div class="mx-auto max-w-[1280px] px-6 lg:px-10">
+    <div class="grid grid-cols-12 gap-8">
+      <div class="col-span-12 lg:col-span-5 reveal">
+        <div class="font-mono text-[11px] tracking-[0.25em] text-ink-400 uppercase mb-4">05 / Contact</div>
+        <h2 class="font-display text-5xl md:text-7xl tracking-[-0.02em] leading-[0.95]">Let's build<br/>something.</h2>
+        <p class="mt-6 text-[15px] text-ink-300 max-w-md leading-relaxed">Open to full-time roles, freelance work, or a conversation about backend engineering.</p>
+
+        <div class="mt-10 space-y-5 font-mono text-[13px]">
+          <a href="/cdn-cgi/l/email-protection#f09c919b9992859cde938395b0979d91999cde939f9d" class="flex items-center justify-between gap-4 py-4 border-b hair group">
+            <span class="text-ink-400 uppercase tracking-[0.22em] text-[11px]">Email</span>
+            <span class="text-white group-hover:underline"><span class="__cf_email__" data-cfemail="f79b969c9e95829bd9948492b7909a969e9bd994989a">[email&#160;protected]</span></span>
+          </a>
+          <a href="tel:+8801983427887" class="flex items-center justify-between gap-4 py-4 border-b hair group">
+            <span class="text-ink-400 uppercase tracking-[0.22em] text-[11px]">Phone</span>
+            <span class="text-white group-hover:underline">+880 1983-427887</span>
+          </a>
+          <div class="flex items-center justify-between gap-4 py-4 border-b hair">
+            <span class="text-ink-400 uppercase tracking-[0.22em] text-[11px]">Location</span>
+            <span class="text-white">Dhaka, Bangladesh</span>
+          </div>
+          <div class="flex items-center justify-between gap-4 py-4 border-b hair">
+            <span class="text-ink-400 uppercase tracking-[0.22em] text-[11px]">Social</span>
+            <span class="flex items-center gap-4">
+              <a href="https://github.com/lakibul" class="u-link hover:text-white">GitHub</a>
+              <a href="https://www.linkedin.com/in/lakibul-hasan" class="u-link hover:text-white">LinkedIn</a>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-span-12 lg:col-span-7 reveal">
+        <form id="contactForm" class="rounded-2xl border hair p-6 md:p-8 bg-ink-900/40 grid grid-cols-2 gap-5">
+          <label class="col-span-2 sm:col-span-1">
+            <span class="block font-mono text-[11px] tracking-[0.22em] uppercase text-ink-400 mb-2">Name</span>
+            <input required name="name" type="text" class="w-full bg-transparent border-b hair pb-2 focus:border-white outline-none transition text-[15px]" placeholder="Your name" />
+          </label>
+          <label class="col-span-2 sm:col-span-1">
+            <span class="block font-mono text-[11px] tracking-[0.22em] uppercase text-ink-400 mb-2">Email</span>
+            <input required name="email" type="email" class="w-full bg-transparent border-b hair pb-2 focus:border-white outline-none transition text-[15px]" placeholder="you@company.com" />
+          </label>
+          <label class="col-span-2">
+            <span class="block font-mono text-[11px] tracking-[0.22em] uppercase text-ink-400 mb-2">Subject</span>
+            <input name="subject" type="text" class="w-full bg-transparent border-b hair pb-2 focus:border-white outline-none transition text-[15px]" placeholder="What's this about?" />
+          </label>
+          <label class="col-span-2">
+            <span class="block font-mono text-[11px] tracking-[0.22em] uppercase text-ink-400 mb-2">Message</span>
+            <textarea required name="message" rows="5" class="w-full bg-transparent border-b hair pb-2 focus:border-white outline-none transition text-[15px] resize-none" placeholder="Tell me about the project, timeline, and budget."></textarea>
+          </label>
+          <div class="col-span-2 flex flex-wrap items-center justify-between gap-4 pt-3">
+            <span class="font-mono text-[11px] text-ink-400">Avg. response time · 24h</span>
+            <button type="submit" class="inline-flex items-center gap-2 rounded-full bg-white text-ink-950 text-[14px] font-medium px-5 py-3 hover:bg-ink-100 transition">
+              Send message
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="border-t hair py-10">
+  <div class="mx-auto max-w-[1280px] px-6 lg:px-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+    <div class="font-mono text-[12px] text-ink-400">© 2026 Md Lakibul Hasan. Crafted with care.</div>
+    <div class="font-mono text-[12px] text-ink-400">v2.0 · Built with Tailwind CSS</div>
+  </div>
+</footer>
+
+</main>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js" defer></script><script>
+  // ---------- Theme toggle (persisted) ----------
+  const html = document.documentElement;
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light') html.classList.remove('dark');
+  if (saved === 'dark') html.classList.add('dark');
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    html.classList.toggle('dark');
+    localStorage.setItem('theme', html.classList.contains('dark') ? 'dark' : 'light');
+    applyThemeClasses();
+  });
+
+  // Light-mode color overrides applied via class toggles on body
+  function applyThemeClasses() {
+    const dark = html.classList.contains('dark');
+    document.body.classList.toggle('bg-ink-950', dark);
+    document.body.classList.toggle('text-ink-100', dark);
+    document.body.classList.toggle('bg-ink-50', !dark);
+    document.body.classList.toggle('text-ink-900', !dark);
+  }
+  applyThemeClasses();
+
+  // ---------- Scroll progress bar ----------
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+    progress.style.width = pct + '%';
+  }, { passive: true });
+
+  // ---------- Reveal on scroll ----------
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // ---------- Projects data (editorial rows; featured ReplyFlow rendered in hero block) ----------
+  const projects = [
+    {
+      title: "ReplyFlow — AI Customer Support",
+      blurb: "Production AI SaaS on Laravel 12, GPT-4o-mini, and Redis queues. Auto-generates context-aware support replies at scale.",
+      tags: ["Laravel 12","OpenAI","Redis","MySQL"],
+      img: "https://i.postimg.cc/vmNSGCRp/Gemini-Generated-Image-amrpv4amrpv4amrp.png",
+      href: "https://github.com/lakibul/replyflow",
+      label: "GitHub",
+      year: "2025", kind: "AI SaaS",
+      role: "Full-stack · AI"
+    },
+    {
+      title: "Walltouch Multivendor E-Commerce",
+      blurb: "Multi-vendor platform with Super Admin, Admin, and Seller role-based operations. Complex commerce engine with order orchestration.",
+      tags: ["Laravel","MySQL","Bootstrap"],
+      img: "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/5aa2e91b74052568997237f799f0b931-1776172882838/WhatsApp%20Image%202026-04-14%20at%207.21.09%20PM.jpeg",
+      href: "https://www.walltouchbd.com",
+      label: "Live site",
+      year: "2024", kind: "E-Commerce",
+      role: "Backend lead"
+    },
+    {
+      title: "PrimeBazar — Halal Groceries",
+      blurb: "High-traffic e-commerce backend. Order slot management, payment flows, and delivery orchestration for a grocery marketplace.",
+      tags: ["Laravel","Flutter","Stripe","Redis"],
+      img: "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/e211142beef4d318a8d23ae91d3d827e-1776173832953/Screenshot%202026-04-14%20192936.png",
+      href: "https://primebazaartx.com",
+      label: "Live site",
+      year: "2024", kind: "E-Commerce",
+      role: "Backend · Perf"
+    },
+    {
+      title: "Ultimate POS — Walltouch",
+      blurb: "Cloud-based POS with multi-location inventory, real-time sync, and role-based access for retail businesses.",
+      tags: ["Laravel","MySQL","Bootstrap"],
+      img: "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/5dbc915493c416b5e95c8f86228d082c-1776174995486/Screenshot_12.png",
+      href: "https://pos2.walltouchbd.com",
+      label: "Live site",
+      year: "2023", kind: "POS",
+      role: "Backend"
+    },
+    {
+      title: "Mini HR System",
+      blurb: "Compact HR panel with role-based workflows for employee management, attendance tracking, and leave approvals.",
+      tags: ["Node.js","TypeScript","Express","MongoDB"],
+      img: "https://resources.workable.com/wp-content/uploads/2018/09/How-to-hire-your-first-HR-person-thumb.png",
+      href: "https://github.com/lakibul/mini-hr.git",
+      label: "GitHub",
+      year: "2024", kind: "HR Tool",
+      role: "Full-stack"
+    },
+    {
+      title: "Simple Admission",
+      blurb: "Education agency platform for study-abroad admissions, application tracking, and process management.",
+      tags: ["Laravel","Bootstrap","MySQL"],
+      img: "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/57b57ca6f199be3a1c260d7d6d921872-1776174023101/Screenshot%202026-04-14%20194016.png",
+      href: "https://simpleadmission.net",
+      label: "Live site",
+      year: "2023", kind: "EdTech",
+      role: "Backend"
+    },
+    {
+      title: "POHS Sportsplex Booking",
+      blurb: "Slot-based sports facility booking platform. Reservations, recurring bookings, and capacity operations.",
+      tags: ["Laravel","MySQL","Bootstrap"],
+      img: "https://fiverr-res.cloudinary.com/image/upload/f_auto,q_auto/v1/attachments/project_item/attachment/b777c1ff4cea64db8f904fb7b193b96f-1776175222844/Screenshot%202026-04-14%20195934.png",
+      href: "https://pohssportsplex.com",
+      label: "Live site",
+      year: "2024", kind: "Booking",
+      role: "Backend"
+    }
+  ];
+
+  // 3-column project cards
+  const list = document.getElementById('projectsList');
+  projects.forEach((p, i) => {
+    const n = String(i + 2).padStart(2, '0'); // 02, 03, … (01 is the featured block)
+    list.insertAdjacentHTML('beforeend', `
+      <article class="proj-row reveal group relative rounded-2xl border hair overflow-hidden bg-ink-900/40 hover:bg-ink-900/60 transition flex flex-col">
+        <a href="${p.href}" target="_blank" rel="noopener" class="block">
+          <div class="relative aspect-[4/3] overflow-hidden bg-ink-800">
+            <img class="proj-row-img w-full h-full object-cover" src="${p.img}" alt="${p.title}" loading="lazy" />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-ink-950/10 to-transparent"></div>
+            <!-- top meta strip -->
+            <div class="absolute top-3 left-3 right-3 flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.2em] text-white/85">
+              <span class="inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-black/40 backdrop-blur-sm px-2.5 py-1">
+                <span class="proj-row-index">${n}</span><span class="opacity-40">·</span><span>${p.kind}</span>
+              </span>
+              <span class="opacity-75">${p.year}</span>
+            </div>
+            <!-- role badge -->
+            <div class="absolute bottom-3 left-3 font-mono text-[10px] uppercase tracking-[0.2em] text-white/80">
+              ${p.role}
+            </div>
+          </div>
+        </a>
+
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="font-display text-xl md:text-[22px] tracking-[-0.01em] leading-[1.15]">${p.title}</h3>
+            <svg class="w-4 h-4 text-ink-400 group-hover:text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0 mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+          </div>
+          <p class="mt-3 text-[13.5px] text-ink-300 leading-relaxed">${p.blurb}</p>
+
+          <div class="mt-5 flex flex-wrap gap-1.5">
+            ${p.tags.map(t => `<span class="font-mono text-[10.5px] text-ink-300 border hair rounded-full px-2 py-0.5">${t}</span>`).join('')}
+          </div>
+
+          <div class="mt-auto pt-5">
+            <a href="${p.href}" target="_blank" rel="noopener"
+               class="proj-row-cta inline-flex items-center gap-2 text-[13px] text-white">
+              <span class="u-link">${p.label}</span>
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M7 17L17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+    `);
+  });
+  // re-observe newly added reveals
+  document.querySelectorAll('.proj-row.reveal').forEach(el => io.observe(el));
+
+  // ---------- Skills bars ----------
+  const skills = [
+    { name: "PHP / Laravel", w: 95, note: "v5 — v12, microservices, queues" },
+    { name: "Node.js / TypeScript", w: 82, note: "Express, REST, realtime" },
+    { name: "MySQL / PostgreSQL", w: 90, note: "Schema design, tuning, indexing" },
+    { name: "Redis / Queues", w: 85, note: "Caching, async workflows" },
+    { name: "REST API Architecture", w: 92, note: "Versioning, auth, OpenAPI" },
+    { name: "Docker / DevOps", w: 72, note: "Compose, CI/CD, Ubuntu" },
+    { name: "OpenAI / Automation", w: 80, note: "GPT-4o-mini, prompt eng." },
+    { name: "Vue.js / Inertia", w: 68, note: "Laravel-connected SPAs" },
+  ];
+  const bars = document.getElementById('bars');
+  skills.forEach((s, i) => {
+    bars.insertAdjacentHTML('beforeend', `
+      <div class="reveal rounded-2xl border hair p-5 md:p-6">
+        <div class="flex items-end justify-between gap-4 mb-3">
+          <div>
+            <div class="text-[15px] md:text-[16px]">${s.name}</div>
+            <div class="font-mono text-[11px] text-ink-400 mt-1">${s.note}</div>
+          </div>
+          <div class="font-mono text-[12px] text-ink-300">${s.w}<span class="opacity-50">%</span></div>
+        </div>
+        <div class="h-[6px] rounded-full bg-white/5 overflow-hidden">
+          <div class="bar-fill h-full bg-white" style="--w:${s.w}%"></div>
+        </div>
+      </div>
+    `);
+  });
+  // re-observe for bars
+  const barIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        const bar = e.target.querySelector('.bar-fill');
+        if (bar) requestAnimationFrame(() => bar.classList.add('in'));
+        barIO.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('#bars .reveal').forEach(el => barIO.observe(el));
+
+  // ---------- Contact form (demo) ----------
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type=submit]');
+    const orig = btn.innerHTML;
+    btn.innerHTML = 'Sending…';
+    btn.disabled = true;
+    setTimeout(() => {
+      btn.innerHTML = '✓ Message sent';
+      setTimeout(() => { btn.innerHTML = orig; btn.disabled = false; e.target.reset(); }, 2000);
+    }, 900);
+  });
+</script>
+
+<!-- Light-mode tweaks: higher-contrast tokens when .dark is absent -->
+<style>
+  html:not(.dark) body { background:#fafafa; color:#0a0a0c; }
+  html:not(.dark) header nav { background: rgba(255,255,255,0.7); }
+  html:not(.dark) .bg-ink-950 { background:#fafafa !important; }
+  html:not(.dark) .bg-ink-900\/40 { background: rgba(10,10,12,0.03) !important; }
+  html:not(.dark) .bg-ink-900\/50 { background: rgba(10,10,12,0.03) !important; }
+  html:not(.dark) .bg-ink-900\/60 { background: rgba(10,10,12,0.05) !important; }
+  html:not(.dark) .bg-ink-900\/70 { background: rgba(255,255,255,0.7) !important; }
+  html:not(.dark) .text-ink-100, html:not(.dark) .text-ink-200 { color:#1f1f24 !important; }
+  html:not(.dark) .text-ink-300 { color:#4a4a53 !important; }
+  html:not(.dark) .text-ink-400 { color:#6f6f7a !important; }
+  html:not(.dark) .text-ink-500 { color:#a8a8b1 !important; }
+  html:not(.dark) .bg-white { background:#0a0a0c !important; color:#fff !important; }
+  html:not(.dark) .bg-white.text-ink-950 { color:#fff !important; }
+  html:not(.dark) .hover\:bg-ink-100:hover { background:#1f1f24 !important; }
+  html:not(.dark) .bg-white\/5 { background: rgba(0,0,0,0.05) !important; }
+  html:not(.dark) .bg-white\/10 { background: rgba(0,0,0,0.1) !important; }
+  html:not(.dark) .bar-fill { background:#0a0a0c !important; }
+  html:not(.dark) #progress { background:#0a0a0c !important; }
+  /* Inline accent spans: flip .text-white to near-black in light mode.
+     Nav CTA button keeps white text via more-specific .bg-white.text-ink-950 rule below. */
+  html:not(.dark) .text-white { color:#0a0a0c !important; }
+  html:not(.dark) a.bg-white, html:not(.dark) button.bg-white, html:not(.dark) span.bg-white { color:#fff !important; }
+  html:not(.dark) .bg-white .text-white { color:#fff !important; }
+  html:not(.dark) .from-ink-950\/60 { --tw-gradient-from: rgba(250,250,250,0.6) var(--tw-gradient-from-position) !important; }
+  html:not(.dark) .from-ink-950\/80 { --tw-gradient-from: rgba(10,10,12,0.55) var(--tw-gradient-from-position) !important; }
+  html:not(.dark) .via-ink-950\/10 { --tw-gradient-via: rgba(10,10,12,0.05) !important; }
+</style>
+
+</body>
+</html>
