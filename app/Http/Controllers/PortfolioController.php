@@ -182,7 +182,7 @@ class PortfolioController extends Controller
 
     public function downloadCV()
     {
-        $pathToFile = public_path('assets/cv/Md_Lakibul_Hasan_CV.pdf');
+        $pathToFile = public_path('assets/cv/Lakibul-Resume.pdf');
 
         // Check if file exists, if not provide a fallback
         if (!file_exists($pathToFile)) {
