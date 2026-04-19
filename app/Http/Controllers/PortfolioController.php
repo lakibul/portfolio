@@ -167,7 +167,7 @@ class PortfolioController extends Controller
             ],
             'skill_bars' => [
                 ['name' => 'PHP / Laravel',          'w' => 95, 'note' => 'v5 — v12, microservices, queues'],
-                ['name' => 'Node.js / TypeScript',   'w' => 82, 'note' => 'Express, REST, realtime'],
+                ['name' => 'Node.js / TypeScript',   'w' => 70, 'note' => 'Express, REST, realtime'],
                 ['name' => 'MySQL / PostgreSQL',      'w' => 90, 'note' => 'Schema design, tuning, indexing'],
                 ['name' => 'Redis / Queues',          'w' => 85, 'note' => 'Caching, async workflows'],
                 ['name' => 'REST API Architecture',   'w' => 92, 'note' => 'Versioning, auth, OpenAPI'],

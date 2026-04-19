@@ -87,7 +87,7 @@
         <div class="flex items-center gap-3 text-[12px] font-mono tracking-wide text-ink-300 mb-8 reveal">
           <span class="inline-flex items-center gap-2 rounded-full border hair px-3 py-1">
             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 dot-pulse"></span>
-            Available for opportunities
+            Available
           </span>
           <span class="hidden sm:inline opacity-50">— {{ $data['location'] }} · UTC+6</span>
         </div>
@@ -187,22 +187,22 @@
     </div>
 
     {{-- Bottom meta row --}}
-    <div class="mt-20 pt-6 border-t hair grid grid-cols-2 md:grid-cols-4 gap-6 font-mono text-[12px] text-ink-400">
-      <div>
+    <div class="mt-20 pt-6 border-t hair grid grid-cols-2 md:grid-cols-3 gap-6 font-mono text-[12px] text-ink-400">
+      {{-- <div>
         <div class="text-ink-300 uppercase tracking-[0.18em] text-[10px] mb-2">Currently</div>
         <div class="text-white">{{ $data['experience'][0]['title'] }} · {{ $data['experience'][0]['company'] }}</div>
-      </div>
+      </div> --}}
       <div>
         <div class="text-ink-300 uppercase tracking-[0.18em] text-[10px] mb-2">Focus</div>
-        <div class="text-white">Microservices · AI Automation · Perf</div>
+        <div class="text-white">Microservices · AI Automation · Perf · APIs</div>
       </div>
       <div>
         <div class="text-ink-300 uppercase tracking-[0.18em] text-[10px] mb-2">Stack</div>
-        <div class="text-white">PHP · Laravel · Node · Redis · Docker</div>
+        <div class="text-white">PHP · Laravel · CodeIgniter · Node · Redis · Docker</div>
       </div>
       <div>
-        <div class="text-ink-300 uppercase tracking-[0.18em] text-[10px] mb-2">Based in</div>
-        <div class="text-white">{{ $data['location'] }} — open to remote</div>
+        <div class="text-ink-300 uppercase tracking-[0.18em] text-[10px] mb-2">Database and Others</div>
+        <div class="text-white">MySQl · PostgreSQL · MongoDB</div>
       </div>
     </div>
   </div>
